@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/common_actionbar" 
+        layout="@layout/include_action_bar" />
+    <FrameLayout 
+        android:id="@+id/mystatustoast"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="48dp">
+        <ImageView 
+            android:id="@+id/background"
+            android:src="@drawable/mystatusback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"/>
+        <RelativeLayout 
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" >
+           <TextView 
+               android:id="@+id/name"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"  
+               android:layout_alignParentBottom="true"
+               android:layout_marginBottom="10dp"
+               android:layout_marginRight="100dp"
+               android:layout_alignParentRight="true"
+               android:textColor="@android:color/white"
+               android:textStyle="bold"
+               android:textSize="20sp"
+               android:text="zuoshou"/>
+        </RelativeLayout>
+    </FrameLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView  
+        android:layout_marginTop="248dp"
+	    android:id="@+id/expand_list"  
+	    android:background="#105665"
+        android:divider="#19000000"  
+        android:dividerHeight="4dp"  
+        android:fadingEdge="none"  
+        android:fastScrollEnabled="false"  
+        android:footerDividersEnabled="false"  
+        android:headerDividersEnabled="false"  
+        android:smoothScrollbar="true" 
+	    android:layout_width="match_parent"  
+	    android:layout_height="match_parent" />  
+    <RelativeLayout 
+        android:layout_marginTop="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="230dp" >
+        <ImageView 
+            android:id="@+id/headimage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/default_head"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>      
+</FrameLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include
+        android:id="@+id/common_actionbar"
+        layout="@layout/include_action_bar" />
+     
+	    <FrameLayout 
+		    android:id="@+id/essay"
+		    android:layout_width="match_parent"  
+           	android:layout_height="match_parent" >
+		    <WebView
+				android:id="@+id/edit_describe"
+				android:layout_width="match_parent"
+				android:layout_height="fill_parent"/> 
+			<RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent">
+			    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+			        android:id="@+id/progress"
+			        android:layout_centerInParent="true"
+			        app:mlpb_progress_stoke_width="3dp"
+			        app:mlpb_progress_color="#566da9"
+			        android:layout_width="36dp"
+			        android:layout_height="36dp" />   
+		    </RelativeLayout>   	
+	    </FrameLayout>  
+</LinearLayout>
