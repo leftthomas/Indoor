@@ -1,0 +1,328 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}">
+
+    <include
+        android:id="@+id/common_actionbar"
+        layout="@layout/include_action_bar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/eat"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/eat" />
+
+                <ImageView
+                    android:id="@+id/buy"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/buy" />
+
+                <ImageView
+                    android:id="@+id/hotal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/hotal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:text="@string/eat" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/buy" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="@string/hotal" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/movie"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/movie" />
+
+                <ImageView
+                    android:id="@+id/sport"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/sport" />
+
+                <ImageView
+                    android:id="@+id/hospita"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/hospita" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:text="@string/movie" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/sport" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="@string/hospita" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/park"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/park" />
+
+                <ImageView
+                    android:id="@+id/gongce"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/gongce" />
+
+                <ImageView
+                    android:id="@+id/fun"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/fun" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:text="@string/park" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/gongce" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="@string/fun" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/atm"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/atm" />
+
+                <ImageView
+                    android:id="@+id/bank"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bank" />
+
+                <ImageView
+                    android:id="@+id/book"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/book" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:text="@string/atm" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/bank" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="@string/book" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/fengjing"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/fengjing" />
+
+                <ImageView
+                    android:id="@+id/zhengfu"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/zhengfu" />
+
+                <ImageView
+                    android:id="@+id/bus"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/bus" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:text="@string/fengjing" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/zhengfu" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:text="@string/buss" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/more" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

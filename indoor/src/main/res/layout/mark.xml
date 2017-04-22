@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mark"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="30dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/busname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/hello_world"
+        android:textSize="19sp"></TextView>
+
+    <TextView
+        android:id="@+id/busdistance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ff99"
+        android:gravity="center"
+        android:text="@string/hello_world"
+        android:textSize="15sp"></TextView>
+
+</LinearLayout>

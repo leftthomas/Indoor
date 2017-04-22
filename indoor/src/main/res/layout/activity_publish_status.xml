@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/common_actionbar"
+        layout="@layout/include_action_bar" />
+
+    <FrameLayout
+        android:id="@+id/tagview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/defalutimage" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="210dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <Gallery
+                android:id="@+id/galleryFilter"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:spacing="2dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/brief"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="300dp"
+            android:hint="璇寸偣浠�涔堝惂..." />
+    </FrameLayout>
+
+    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+        android:id="@+id/progress"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_centerInParent="true"
+        app:mlpb_progress_color="#566da9"
+        app:mlpb_progress_stoke_width="3dp" />
+</RelativeLayout>
