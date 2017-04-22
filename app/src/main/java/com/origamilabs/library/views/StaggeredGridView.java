@@ -1893,6 +1893,16 @@ public class StaggeredGridView extends ViewGroup {
         return mSelector;
     }
 
+    /**
+     * Set a Drawable that should be used to highlight the currently selected item.
+     *
+     * @param resID A Drawable resource to use as the selection highlight.
+     * @attr ref android.R.styleable#AbsListView_listSelector
+     */
+    public void setSelector(int resID) {
+        setSelector(getResources().getDrawable(resID));
+    }
+
     public void setSelector(Drawable sel) {
         if (mSelector != null) {
             mSelector.setCallback(null);
@@ -1913,16 +1923,6 @@ public class StaggeredGridView extends ViewGroup {
         mSelectionBottomPadding = padding.bottom;
         sel.setCallback(this);
         updateSelectorState();
-    }
-
-    /**
-     * Set a Drawable that should be used to highlight the currently selected item.
-     *
-     * @param resID A Drawable resource to use as the selection highlight.
-     * @attr ref android.R.styleable#AbsListView_listSelector
-     */
-    public void setSelector(int resID) {
-        setSelector(getResources().getDrawable(resID));
     }
 
     @Override
