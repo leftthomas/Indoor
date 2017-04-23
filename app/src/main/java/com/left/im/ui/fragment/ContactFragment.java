@@ -134,7 +134,8 @@ public class ContactFragment extends ParentWithNaviFragment {
         adapter.setOnRecyclerViewListener(new OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
-                if (position == 0) {//跳转到新朋友页面
+                if (position == 0) {
+                    //跳转到新朋友页面
                     startActivity(NewFriendActivity.class, null);
                 } else {
                     Friend friend = adapter.getItem(position);

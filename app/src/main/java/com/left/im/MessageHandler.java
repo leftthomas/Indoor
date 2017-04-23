@@ -37,14 +37,14 @@ import cn.bmob.v3.listener.SaveListener;
  * 消息接收器
  *
  * @author smile
- * @project DemoMessageHandler
+ * @project MessageHandler
  * @date 2016-03-08-17:37
  */
-public class DemoMessageHandler extends BmobIMMessageHandler {
+public class MessageHandler extends BmobIMMessageHandler {
 
     private Context context;
 
-    public DemoMessageHandler(Context context) {
+    public MessageHandler(Context context) {
         this.context = context;
     }
 

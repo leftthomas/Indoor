@@ -51,7 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_line"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/height_message"
-        android:background="@color/color_line"></View>
+        android:background="@color/color_line" />
 
 </RelativeLayout>
