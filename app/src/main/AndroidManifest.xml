@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.bmob.imdemo">
-
-    <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="14" />
+    package="com.left.im">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 监听网络的变化 -->
@@ -74,7 +70,7 @@
         <!-- 设置bmob appkey -->
         <meta-data
             android:name="Bmob_APP_KEY"
-            android:value="87ab0f9bee41bce86dfadd69af692873" />
+            android:value="dfd76835fa9208696db407291e5eab51" />
         <!-- bmobim end -->
 
     </application>

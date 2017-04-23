@@ -8,7 +8,7 @@ android {
     aaptOptions.useNewCruncher = false
 
     defaultConfig {
-        applicationId "cn.bmob.imdemo"
+        applicationId "com.left.im"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 3
