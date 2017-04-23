@@ -18,6 +18,7 @@ import cn.bmob.newim.BmobIM;
  */
 public class BmobIMApplication extends Application {
 
+
     private static BmobIMApplication INSTANCE;
 
     public static BmobIMApplication INSTANCE() {

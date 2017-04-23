@@ -46,6 +46,7 @@
         <activity android:name=".ui.NewFriendActivity" />
         <activity android:name=".ui.AboutUsActivity" />
         <activity android:name=".ui.BlackListActivity" />
+        <activity android:name=".ui.WallPaperActivity" />
 
         <activity
             android:name=".ui.ChatActivity"
