@@ -6,25 +6,26 @@ import com.left.im.R;
 import com.left.im.base.ParentWithNaviActivity;
 
 /**
- * 发现
+ * 催眠大师
  *
  * @author :left
- * @project:DiscoveryActivity
+ * @project:HypnotistActivity
  * @date :2017-04-25-18:23
  */
-public class DiscoveryActivity extends ParentWithNaviActivity {
+public class HypnotistActivity extends ParentWithNaviActivity {
 
 
     @Override
     protected String title() {
-        return "发现";
+        return "催眠大师";
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discovery);
+        setContentView(R.layout.activity_hypnotist);
         initNaviView();
+        // TODO: 2017/4/23
     }
 
 }

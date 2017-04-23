@@ -52,6 +52,9 @@
         <activity android:name=".ui.AboutUsActivity" />
         <activity android:name=".ui.BlackListActivity" />
         <activity android:name=".ui.WallPaperActivity" />
+        <activity android:name=".ui.DailyArticleActivity" />
+        <activity android:name=".ui.HowOldActivity" />
+        <activity android:name=".ui.HypnotistActivity" />
 
         <activity
             android:name=".ui.ChatActivity"
