@@ -1,14 +1,12 @@
 package com.left.im.bean;
 
 import cn.bmob.v3.BmobObject;
-import cn.bmob.v3.datatype.BmobFile;
 
 public class Goods extends BmobObject {
-    private static final long serialVersionUID = 1L;
     private String name;                // 商品名
     private String price;               // 商品价格
     private String describe;            // 商品描述
-    private BmobFile photo;             // 商品主图
+    private String photo;             // 商品主图
     private String[] category;          //商品所属类目
 
     public String getName() {
@@ -35,11 +33,11 @@ public class Goods extends BmobObject {
         this.describe = describe;
     }
 
-    public BmobFile getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(BmobFile photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

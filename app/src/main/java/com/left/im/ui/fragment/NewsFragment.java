@@ -14,7 +14,7 @@ import com.left.im.base.ParentWithNaviFragment;
 import butterknife.ButterKnife;
 
 /**
- * 新闻
+ * 新闻界面
  *
  * @author :left
  * @project:SetFragment
