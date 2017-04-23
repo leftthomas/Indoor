@@ -13,7 +13,6 @@ import com.left.im.R;
 import com.left.im.adapter.ConversationAdapter;
 import com.left.im.adapter.OnRecyclerViewListener;
 import com.left.im.adapter.base.IMutlipleItem;
-import com.left.im.base.ParentWithNaviActivity;
 import com.left.im.base.ParentWithNaviFragment;
 import com.left.im.bean.Conversation;
 import com.left.im.bean.NewFriendConversation;
@@ -21,7 +20,6 @@ import com.left.im.bean.PrivateConversation;
 import com.left.im.db.NewFriend;
 import com.left.im.db.NewFriendManager;
 import com.left.im.event.RefreshEvent;
-import com.left.im.ui.SearchUserActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -58,25 +56,6 @@ public class ConversationFragment extends ParentWithNaviFragment {
         return "会话";
     }
 
-    @Override
-    public Object right() {
-        return R.drawable.base_action_bar_add_bg_selector;
-    }
-
-    @Override
-    public ParentWithNaviActivity.ToolBarListener setToolBarListener() {
-        return new ParentWithNaviActivity.ToolBarListener() {
-            @Override
-            public void clickLeft() {
-
-            }
-
-            @Override
-            public void clickRight() {
-                startActivity(SearchUserActivity.class, null);
-            }
-        };
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

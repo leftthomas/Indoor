@@ -82,6 +82,36 @@
         </RelativeLayout>
 
         <Button
+            android:id="@+id/btn_news"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/top_bar"
+            android:drawableTop="@drawable/tab_news_btn"
+            android:onClick="onTabSelect"
+            android:paddingBottom="2dip"
+            android:paddingTop="7dip"
+            android:scaleType="matrix"
+            android:text="@string/main_tab_news"
+            android:textColor="@drawable/tab_textcolor"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_shop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/top_bar"
+            android:drawableTop="@drawable/tab_shop_btn"
+            android:onClick="onTabSelect"
+            android:paddingBottom="2dip"
+            android:paddingTop="7dip"
+            android:scaleType="matrix"
+            android:text="@string/main_tab_shop"
+            android:textColor="@drawable/tab_textcolor"
+            android:textSize="12sp" />
+
+        <Button
             android:id="@+id/btn_set"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -92,7 +122,7 @@
             android:paddingBottom="2dip"
             android:paddingTop="7dip"
             android:scaleType="matrix"
-            android:text="@string/mian_tab_set"
+            android:text="@string/main_tab_set"
             android:textColor="@drawable/tab_textcolor"
             android:textSize="12sp" />
     </LinearLayout>

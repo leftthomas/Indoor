@@ -9,8 +9,6 @@ public class Config {
     /**
      * Bmob应用key
      */
-//    public static final String DEFAULT_APPKEY="d6f44e8f1ba9d3dcf4fab7a487fa97dd";//内
-    public static final String DEFAULT_APPKEY = "87ab0f9bee41bce86dfadd69af692873";//外
     //是否是debug模式
     public static final boolean DEBUG = true;
     //好友请求：未读-未添加->接收到别人发给我的好友添加请求，初始状态

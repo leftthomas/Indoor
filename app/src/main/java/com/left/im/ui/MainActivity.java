@@ -14,7 +14,9 @@ import com.left.im.db.NewFriendManager;
 import com.left.im.event.RefreshEvent;
 import com.left.im.ui.fragment.ContactFragment;
 import com.left.im.ui.fragment.ConversationFragment;
+import com.left.im.ui.fragment.NewsFragment;
 import com.left.im.ui.fragment.SetFragment;
+import com.left.im.ui.fragment.ShopFragment;
 import com.left.im.util.IMMLeaks;
 import com.orhanobut.logger.Logger;
 
@@ -44,6 +46,10 @@ public class MainActivity extends BaseActivity implements ObseverListener {
     Button btn_conversation;
     @Bind(R.id.btn_set)
     Button btn_set;
+    @Bind(R.id.btn_news)
+    Button btn_news;
+    @Bind(R.id.btn_shop)
+    Button btn_shop;
 
     @Bind(R.id.btn_contact)
     Button btn_contact;
@@ -56,6 +62,8 @@ public class MainActivity extends BaseActivity implements ObseverListener {
     ContactFragment contactFragment;
     private Button[] mTabs;
     private ConversationFragment conversationFragment;
+    private NewsFragment newsFragment;
+    private ShopFragment shopFragment;
     private SetFragment setFragment;
     private Fragment[] fragments;
     private int index;
@@ -83,7 +91,7 @@ public class MainActivity extends BaseActivity implements ObseverListener {
         BmobIM.getInstance().setOnConnectStatusChangeListener(new ConnectStatusChangeListener() {
             @Override
             public void onChange(ConnectionStatus status) {
-                toast("" + status.getMsg());
+                Logger.i("" + status.getMsg());
             }
         });
         //解决leancanary提示InputMethodManager内存泄露的问题
@@ -93,24 +101,31 @@ public class MainActivity extends BaseActivity implements ObseverListener {
     @Override
     protected void initView() {
         super.initView();
-        mTabs = new Button[3];
+        mTabs = new Button[5];
         mTabs[0] = btn_conversation;
         mTabs[1] = btn_contact;
-        mTabs[2] = btn_set;
+        mTabs[2] = btn_news;
+        mTabs[3] = btn_shop;
+        mTabs[4] = btn_set;
         mTabs[0].setSelected(true);
         initTab();
     }
 
     private void initTab() {
         conversationFragment = new ConversationFragment();
+        newsFragment = new NewsFragment();
+        shopFragment = new ShopFragment();
         setFragment = new SetFragment();
         contactFragment = new ContactFragment();
-        fragments = new Fragment[]{conversationFragment, contactFragment, setFragment};
+        fragments = new Fragment[]{conversationFragment, contactFragment, newsFragment, shopFragment, setFragment};
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, conversationFragment).
                 add(R.id.fragment_container, contactFragment)
+                .add(R.id.fragment_container, newsFragment)
+                .add(R.id.fragment_container, shopFragment)
                 .add(R.id.fragment_container, setFragment)
-                .hide(setFragment).hide(contactFragment)
+                .hide(setFragment).hide(shopFragment)
+                .hide(newsFragment).hide(contactFragment)
                 .show(conversationFragment).commit();
     }
 
@@ -122,8 +137,14 @@ public class MainActivity extends BaseActivity implements ObseverListener {
             case R.id.btn_contact:
                 index = 1;
                 break;
-            case R.id.btn_set:
+            case R.id.btn_news:
                 index = 2;
+                break;
+            case R.id.btn_shop:
+                index = 3;
+                break;
+            case R.id.btn_set:
+                index = 4;
                 break;
         }
         onTabIndex(index);
