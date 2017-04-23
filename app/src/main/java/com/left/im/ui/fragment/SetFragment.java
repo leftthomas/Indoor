@@ -100,9 +100,7 @@ public class SetFragment extends ParentWithNaviFragment {
 
     @OnClick(R.id.layout_wallpaper)
     public void onWallpaperClick(View view) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("u", BmobUser.getCurrentUser(getActivity(), User.class));
-        startActivity(WallPaperActivity.class, bundle);
+        startActivity(WallPaperActivity.class, null);
     }
 
     @OnClick(R.id.rl_switch_notification)

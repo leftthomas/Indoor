@@ -25,6 +25,7 @@ public class BlackListActivity extends ParentWithNaviActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_black_list);
         initNaviView();
+        // TODO: 2017/4/23
     }
 
 }
