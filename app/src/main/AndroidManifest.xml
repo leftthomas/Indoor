@@ -41,6 +41,7 @@
         <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.SearchUserActivity" />
         <activity android:name=".ui.GoodActivity" />
+        <activity android:name=".ui.NewsActivity" />
         <activity android:name=".ui.UserInfoActivity" />
         <activity android:name=".ui.NewFriendActivity" />
 
