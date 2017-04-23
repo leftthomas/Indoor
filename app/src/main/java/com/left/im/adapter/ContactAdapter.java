@@ -24,7 +24,12 @@ import java.util.Collection;
 public class ContactAdapter extends BaseRecyclerAdapter<Friend> {
 
     public static final int TYPE_NEW_FRIEND = 0;
-    public static final int TYPE_ITEM = 1;
+    public static final int TYPE_NEARBY_PEOPLE = 1;
+    public static final int TYPE_FRIEND_DISTRIBUTION = 2;
+    public static final int TYPE_FRIEND_CIRCLE = 3;
+    public static final int TYPE_LIVING_SURROUNDINGS = 4;
+    public static final int TYPE_DISCOVERY = 5;
+    public static final int TYPE_ITEM = 6;
 
     public ContactAdapter(Context context, IMutlipleItem<Friend> items, Collection<Friend> datas) {
         super(context, items, datas);

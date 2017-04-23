@@ -108,7 +108,7 @@ public class UserModel extends BaseModel {
         final User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-//        默认设置用户注册之后性别为男
+        //默认设置用户注册之后性别为男
         user.setSex("男");
         user.signUp(getContext(), new SaveListener() {
             @Override

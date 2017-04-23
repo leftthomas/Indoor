@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_message"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_message">
+
+        <ImageView
+            android:layout_width="@dimen/height_50"
+            android:layout_height="@dimen/height_50"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:padding="@dimen/margin_3"
+            android:src="@mipmap/friend_circle_icon" />
+
+        <TextView
+            style="@style/style_text_black"
+            android:layout_width="wrap_content"
+            android:layout_height="25.0dip"
+            android:layout_marginLeft="@dimen/margin_18"
+            android:layout_marginRight="58.0dip"
+            android:ellipsize="end"
+            android:gravity="left|center"
+            android:singleLine="true"
+            android:text="@string/friend_circle"
+            android:textSize="@dimen/text_size_large" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_line"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_line" />
+
+</RelativeLayout>

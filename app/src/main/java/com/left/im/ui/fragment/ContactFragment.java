@@ -1,7 +1,9 @@
 package com.left.im.ui.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +22,11 @@ import com.left.im.bean.User;
 import com.left.im.event.RefreshEvent;
 import com.left.im.model.UserModel;
 import com.left.im.ui.ChatActivity;
+import com.left.im.ui.DiscoveryActivity;
+import com.left.im.ui.FriendCircleActivity;
+import com.left.im.ui.FriendDistributionActivity;
+import com.left.im.ui.LivingSurroundingsActivity;
+import com.left.im.ui.NearbyPeopleActivity;
 import com.left.im.ui.NewFriendActivity;
 import com.left.im.ui.SearchUserActivity;
 
@@ -85,9 +92,19 @@ public class ContactFragment extends ParentWithNaviFragment {
         IMutlipleItem<Friend> mutlipleItem = new IMutlipleItem<Friend>() {
 
             @Override
-            public int getItemViewType(int postion, Friend friend) {
-                if (postion == 0) {
+            public int getItemViewType(int position, Friend friend) {
+                if (position == 0) {
                     return ContactAdapter.TYPE_NEW_FRIEND;
+                } else if (position == 1) {
+                    return ContactAdapter.TYPE_NEARBY_PEOPLE;
+                } else if (position == 2) {
+                    return ContactAdapter.TYPE_FRIEND_DISTRIBUTION;
+                } else if (position == 3) {
+                    return ContactAdapter.TYPE_FRIEND_CIRCLE;
+                } else if (position == 4) {
+                    return ContactAdapter.TYPE_LIVING_SURROUNDINGS;
+                } else if (position == 5) {
+                    return ContactAdapter.TYPE_DISCOVERY;
                 } else {
                     return ContactAdapter.TYPE_ITEM;
                 }
@@ -97,6 +114,16 @@ public class ContactFragment extends ParentWithNaviFragment {
             public int getItemLayoutId(int viewtype) {
                 if (viewtype == ContactAdapter.TYPE_NEW_FRIEND) {
                     return R.layout.header_new_friend;
+                } else if (viewtype == ContactAdapter.TYPE_NEARBY_PEOPLE) {
+                    return R.layout.header_nearby_people;
+                } else if (viewtype == ContactAdapter.TYPE_FRIEND_DISTRIBUTION) {
+                    return R.layout.header_friend_distribution;
+                } else if (viewtype == ContactAdapter.TYPE_FRIEND_CIRCLE) {
+                    return R.layout.header_friend_circle;
+                } else if (viewtype == ContactAdapter.TYPE_LIVING_SURROUNDINGS) {
+                    return R.layout.header_living_surroundings;
+                } else if (viewtype == ContactAdapter.TYPE_DISCOVERY) {
+                    return R.layout.header_discovery;
                 } else {
                     return R.layout.item_contact;
                 }
@@ -104,7 +131,7 @@ public class ContactFragment extends ParentWithNaviFragment {
 
             @Override
             public int getItemCount(List<Friend> list) {
-                return list.size() + 1;
+                return list.size() + 6;
             }
         };
         adapter = new ContactAdapter(getActivity(), mutlipleItem, null);
@@ -137,6 +164,21 @@ public class ContactFragment extends ParentWithNaviFragment {
                 if (position == 0) {
                     //跳转到新朋友页面
                     startActivity(NewFriendActivity.class, null);
+                } else if (position == 1) {
+                    //跳转到附近的人页面
+                    startActivity(NearbyPeopleActivity.class, null);
+                } else if (position == 2) {
+                    //跳转到朋友分布页面
+                    startActivity(FriendDistributionActivity.class, null);
+                } else if (position == 3) {
+                    //跳转到朋友圈页面
+                    startActivity(FriendCircleActivity.class, null);
+                } else if (position == 4) {
+                    //跳转到生活周边页面
+                    startActivity(LivingSurroundingsActivity.class, null);
+                } else if (position == 5) {
+                    //跳转到发现页面
+                    startActivity(DiscoveryActivity.class, null);
                 } else {
                     Friend friend = adapter.getItem(position);
                     User user = friend.getFriendUser();
@@ -152,21 +194,35 @@ public class ContactFragment extends ParentWithNaviFragment {
             @Override
             public boolean onItemLongClick(final int position) {
                 log("长按" + position);
-                if (position == 0) {
+                if (position == 0 || position == 1 || position == 2 || position == 3 || position == 4 || position == 5) {
                     return true;
                 }
-                UserModel.getInstance().deleteFriend(adapter.getItem(position), new DeleteListener() {
-                    @Override
-                    public void onSuccess() {
-                        toast("好友删除成功");
-                        adapter.remove(position);
-                    }
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("删除该联系人");
+                builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onFailure(int i, String s) {
-                        toast("好友删除失败：" + i + ",s =" + s);
+                    public void onClick(DialogInterface dialog, int which) {
                     }
                 });
+                builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        UserModel.getInstance().deleteFriend(adapter.getItem(position), new DeleteListener() {
+                            @Override
+                            public void onSuccess() {
+                                adapter.remove(position);
+                            }
+
+                            @Override
+                            public void onFailure(int i, String s) {
+                                log(s);
+                            }
+                        });
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
                 return true;
             }
         });
