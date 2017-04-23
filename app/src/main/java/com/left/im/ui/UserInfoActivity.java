@@ -2,7 +2,10 @@ package com.left.im.ui;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -16,6 +19,7 @@ import com.left.im.base.ImageLoaderFactory;
 import com.left.im.base.ParentWithNaviActivity;
 import com.left.im.bean.AddFriendMessage;
 import com.left.im.bean.User;
+import com.left.im.util.Util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,8 +33,10 @@ import cn.bmob.newim.bean.BmobIMUserInfo;
 import cn.bmob.newim.core.BmobIMClient;
 import cn.bmob.newim.listener.MessageSendListener;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
+import cn.bmob.v3.listener.UploadFileListener;
 
 /**
  * 用户资料
@@ -54,6 +60,8 @@ public class UserInfoActivity extends ParentWithNaviActivity {
     User user;
     BmobIMUserInfo info;
     Context context;
+    //头像Bitmap
+    Bitmap head;
 
     @Override
     protected String title() {
@@ -84,53 +92,60 @@ public class UserInfoActivity extends ParentWithNaviActivity {
 
     @OnClick(R.id.layout_head)
     public void onHeadClick(View view) {
-
+        if (user.getObjectId().equals(getCurrentUid())) {
+            //从相册里面取照片
+            Intent intent = new Intent(Intent.ACTION_PICK, null);
+            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+            startActivityForResult(intent, 1);
+        }
     }
 
     @OnClick(R.id.layout_sex)
     public void onSexClick(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("选择您的性别");
-        builder.setPositiveButton("女", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                User newUser = new User();
-                newUser.setSex("女");
-                newUser.update(context, user.getObjectId(), new UpdateListener() {
-                    @Override
-                    public void onSuccess() {
-                        Snackbar.make(layout_all, "已将性别修改为女", Snackbar.LENGTH_SHORT).show();
-                        tv_sex.setText("女");
-                    }
+        if (user.getObjectId().equals(getCurrentUid())) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("选择您的性别");
+            builder.setPositiveButton("女", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    User newUser = new User();
+                    newUser.setSex("女");
+                    newUser.update(context, user.getObjectId(), new UpdateListener() {
+                        @Override
+                        public void onSuccess() {
+                            Snackbar.make(layout_all, "已将性别修改为女", Snackbar.LENGTH_SHORT).show();
+                            tv_sex.setText("女");
+                        }
 
-                    @Override
-                    public void onFailure(int i, String s) {
-                        log(s);
-                    }
-                });
-            }
-        });
-        builder.setNegativeButton("男", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                User newUser = new User();
-                newUser.setSex("男");
-                newUser.update(context, user.getObjectId(), new UpdateListener() {
-                    @Override
-                    public void onSuccess() {
-                        Snackbar.make(layout_all, "已将性别修改为男", Snackbar.LENGTH_SHORT).show();
-                        tv_sex.setText("男");
-                    }
+                        @Override
+                        public void onFailure(int i, String s) {
+                            log(s);
+                        }
+                    });
+                }
+            });
+            builder.setNegativeButton("男", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    User newUser = new User();
+                    newUser.setSex("男");
+                    newUser.update(context, user.getObjectId(), new UpdateListener() {
+                        @Override
+                        public void onSuccess() {
+                            Snackbar.make(layout_all, "已将性别修改为男", Snackbar.LENGTH_SHORT).show();
+                            tv_sex.setText("男");
+                        }
 
-                    @Override
-                    public void onFailure(int i, String s) {
-                        log(s);
-                    }
-                });
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
+                        @Override
+                        public void onFailure(int i, String s) {
+                            log(s);
+                        }
+                    });
+                }
+            });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
     }
 
     @OnClick(R.id.btn_add_friend)
@@ -175,5 +190,58 @@ public class UserInfoActivity extends ParentWithNaviActivity {
         bundle.putSerializable("c", c);
         startActivity(ChatActivity.class, bundle, false);
     }
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    //裁剪图片
+                    Util.cropPhoto(data.getData(), this);
+                }
+                break;
+            case 3:
+                if (data != null) {
+                    Bundle extras = data.getExtras();
+                    head = extras.getParcelable("data");
+                    if (head != null) {
+                        /**
+                         * 上传服务器代码
+                         */
+                        final BmobFile bmobFile = new BmobFile(Util.saveBitmap2file(head, user));
+                        bmobFile.uploadblock(this, new UploadFileListener() {
+                            @Override
+                            public void onSuccess() {
+                                //记得更新对应user的头像
+                                User newUser = new User();
+                                newUser.setAvatar(bmobFile.getFileUrl(context));
+                                newUser.update(context, user.getObjectId(), new UpdateListener() {
+                                    @Override
+                                    public void onSuccess() {
+                                        //用ImageView显示出来
+                                        ImageLoaderFactory.getLoader().loadAvator(iv_avator, bmobFile.getFileUrl(context), R.mipmap.head);
+                                    }
+
+                                    @Override
+                                    public void onFailure(int i, String s) {
+                                        log(s);
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onFailure(int i, String s) {
+                                log(s);
+                            }
+                        });
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 
 }
