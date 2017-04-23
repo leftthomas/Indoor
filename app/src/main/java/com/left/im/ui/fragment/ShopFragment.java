@@ -19,6 +19,7 @@ import com.left.im.adapter.base.IMutlipleItem;
 import com.left.im.base.ParentWithNaviActivity;
 import com.left.im.base.ParentWithNaviFragment;
 import com.left.im.bean.Goods;
+import com.left.im.ui.GoodActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,7 @@ import cn.bmob.v3.listener.FindListener;
  * 购物界面
  *
  * @author :left
- * @project:SetFragment
+ * @project:ShopFragment
  * @date :2017-04-23-18:23
  */
 public class ShopFragment extends ParentWithNaviFragment {
@@ -143,10 +144,9 @@ public class ShopFragment extends ParentWithNaviFragment {
         adapter.setOnRecyclerViewListener(new OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
-
-
-                // TODO: 2017/4/23  
-                adapter.getItem(position);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("good", adapter.getItem(position));
+                startActivity(GoodActivity.class, bundle);
             }
 
             @Override

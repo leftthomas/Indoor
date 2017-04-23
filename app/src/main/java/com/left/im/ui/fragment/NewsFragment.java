@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
  * 新闻界面
  *
  * @author :left
- * @project:SetFragment
+ * @project:NewsFragment
  * @date :2017-04-23-18:23
  */
 public class NewsFragment extends ParentWithNaviFragment {

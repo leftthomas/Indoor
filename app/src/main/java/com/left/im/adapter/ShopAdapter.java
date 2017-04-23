@@ -14,7 +14,7 @@ import java.util.Collection;
  * 购物
  *
  * @author :left
- * @project:ContactNewAdapter
+ * @project:ShopAdapter
  * @date :2017-04-23-14:18
  */
 public class ShopAdapter extends BaseRecyclerAdapter<Goods> {

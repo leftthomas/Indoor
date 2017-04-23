@@ -1,8 +1,10 @@
 package com.left.im.bean;
 
+import java.io.Serializable;
+
 import cn.bmob.v3.BmobObject;
 
-public class Goods extends BmobObject {
+public class Goods extends BmobObject implements Serializable {
     private String name;                // 商品名
     private String price;               // 商品价格
     private String describe;            // 商品描述
