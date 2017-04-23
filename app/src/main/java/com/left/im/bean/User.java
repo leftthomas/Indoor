@@ -14,6 +14,7 @@ public class User extends BmobUser {
     private String avatar;
     private String chat_background;
     private String space_background;
+    private String sex;
 
     public User() {
     }
@@ -22,6 +23,14 @@ public class User extends BmobUser {
         setObjectId(friend.getUid());
         setUsername(friend.getName());
         setAvatar(friend.getAvatar());
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getChat_background() {

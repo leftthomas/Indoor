@@ -67,6 +67,28 @@
             android:drawablePadding="10dp" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/layout_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/about_mid_bg"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/style_text_black"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/add_sex" />
+
+        <TextView
+            android:id="@+id/tv_sex"
+            style="@style/style_text_black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:drawablePadding="10dp" />
+    </RelativeLayout>
+
     <Button
         android:id="@+id/btn_add_friend"
         style="@style/style_text_white"

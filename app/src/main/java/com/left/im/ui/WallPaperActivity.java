@@ -8,7 +8,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
@@ -24,7 +23,6 @@ import java.util.List;
 
 import butterknife.Bind;
 import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -60,7 +58,7 @@ public class WallPaperActivity extends ParentWithNaviActivity {
         setContentView(R.layout.activity_wall_paper);
         initNaviView();
         context = this;
-        user = BmobUser.getCurrentUser(this, User.class);
+        user = (User) getBundle().getSerializable("u");
         IMutlipleItem<WallPapers> mutlipleItem = new IMutlipleItem<WallPapers>() {
 
             @Override
@@ -183,7 +181,7 @@ public class WallPaperActivity extends ParentWithNaviActivity {
                 adapter.bindDatas(null);
                 adapter.notifyDataSetChanged();
                 sw_refresh.setRefreshing(false);
-                Log.i("bmob", "失败：" + s + "," + i);
+                log(s);
             }
         });
     }

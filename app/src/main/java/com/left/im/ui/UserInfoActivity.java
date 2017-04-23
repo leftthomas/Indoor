@@ -1,9 +1,14 @@
 package com.left.im.ui;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.left.im.R;
@@ -25,16 +30,21 @@ import cn.bmob.newim.core.BmobIMClient;
 import cn.bmob.newim.listener.MessageSendListener;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * 用户资料
  */
 public class UserInfoActivity extends ParentWithNaviActivity {
 
+    @Bind(R.id.layout_all)
+    LinearLayout layout_all;
     @Bind(R.id.iv_avator)
     ImageView iv_avator;
     @Bind(R.id.tv_name)
     TextView tv_name;
+    @Bind(R.id.tv_sex)
+    TextView tv_sex;
 
     @Bind(R.id.btn_add_friend)
     Button btn_add_friend;
@@ -43,6 +53,7 @@ public class UserInfoActivity extends ParentWithNaviActivity {
 
     User user;
     BmobIMUserInfo info;
+    Context context;
 
     @Override
     protected String title() {
@@ -54,6 +65,7 @@ public class UserInfoActivity extends ParentWithNaviActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
         initNaviView();
+        context = this;
         user = (User) getBundle().getSerializable("u");
         if (user.getObjectId().equals(getCurrentUid())) {
             btn_add_friend.setVisibility(View.GONE);
@@ -66,6 +78,59 @@ public class UserInfoActivity extends ParentWithNaviActivity {
         info = new BmobIMUserInfo(user.getObjectId(), user.getUsername(), user.getAvatar());
         ImageLoaderFactory.getLoader().loadAvator(iv_avator, user.getAvatar(), R.mipmap.head);
         tv_name.setText(user.getUsername());
+        tv_sex.setText(user.getSex());
+    }
+
+
+    @OnClick(R.id.layout_head)
+    public void onHeadClick(View view) {
+
+    }
+
+    @OnClick(R.id.layout_sex)
+    public void onSexClick(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("选择您的性别");
+        builder.setPositiveButton("女", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                User newUser = new User();
+                newUser.setSex("女");
+                newUser.update(context, user.getObjectId(), new UpdateListener() {
+                    @Override
+                    public void onSuccess() {
+                        Snackbar.make(layout_all, "已将性别修改为女", Snackbar.LENGTH_SHORT).show();
+                        tv_sex.setText("女");
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s) {
+                        log(s);
+                    }
+                });
+            }
+        });
+        builder.setNegativeButton("男", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                User newUser = new User();
+                newUser.setSex("男");
+                newUser.update(context, user.getObjectId(), new UpdateListener() {
+                    @Override
+                    public void onSuccess() {
+                        Snackbar.make(layout_all, "已将性别修改为男", Snackbar.LENGTH_SHORT).show();
+                        tv_sex.setText("男");
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s) {
+                        log(s);
+                    }
+                });
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @OnClick(R.id.btn_add_friend)

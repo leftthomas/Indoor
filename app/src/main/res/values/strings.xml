@@ -21,6 +21,7 @@
     <string name="add_avator">头像</string>
     <string name="add_nick">昵称</string>
     <string name="add_name">账号</string>
+    <string name="add_sex">性别</string>
     <string name="agree">接受</string>
     <string name="new_friend">新的朋友</string>
 

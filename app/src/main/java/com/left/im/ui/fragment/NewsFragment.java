@@ -6,7 +6,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -192,7 +191,7 @@ public class NewsFragment extends ParentWithNaviFragment {
                 adapter.bindDatas(null);
                 adapter.notifyDataSetChanged();
                 sw_refresh.setRefreshing(false);
-                Log.i("bmob", "失败：" + s + "," + i);
+                log(s);
             }
         });
     }
