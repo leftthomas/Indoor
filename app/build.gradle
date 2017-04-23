@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.indoor.im"
-        minSdkVersion 8
+        minSdkVersion 14
         targetSdkVersion 25
     }
 
@@ -19,13 +19,9 @@ android {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile files('libs/AMap_Services_V2.3.1.jar')
-    compile files('libs/Android_3DMap_V2.4.0.jar')
-    compile files('libs/Android_Location_V1.3.1.jar')
-    compile files('libs/BaiduLBS_Android.jar')
-    compile files('libs/faceppsdk.jar')
     //bmob-im：Bmob的即时通讯包，注意每个版本的im依赖特定版本的bmob-sdk
     compile 'cn.bmob.android:bmob-im:2.0.5@aar'
     compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'

@@ -21,7 +21,7 @@
     <!-- Push SDK权限 -->
     <permission
         android:name="cn.bmob.permission.push"
-        android:protectionLevel="normal"></permission>
+        android:protectionLevel="normal" />
 
     <uses-permission android:name="cn.bmob.permission.push" />
     <!-- 添加自定义的权限 -->
@@ -37,35 +37,35 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
     <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <!-- 来电消音 -->
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!-- 用于读取手机当前的状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -124,7 +124,7 @@
             android:enabled="true"
             android:process=":remote">
             <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2"></action>
+                <action android:name="com.baidu.location.service_v2.2" />
             </intent-filter>
         </service>
 
@@ -170,48 +170,48 @@
 
         <activity
             android:name=".ui.FriendsMapActivity"
-            android:label="@string/title_activity_friends_map"></activity>
+            android:label="@string/title_activity_friends_map" />
         <activity
             android:name=".ui.SetWallpaperActivity"
-            android:label="@string/title_activity_set_wallpaper"></activity>
+            android:label="@string/title_activity_set_wallpaper" />
         <activity
             android:name=".ui.LivesActivity"
-            android:label="@string/title_activity_lives"></activity>
+            android:label="@string/title_activity_lives" />
         <activity
             android:name=".ui.FriendsStatusActivity"
-            android:label="@string/title_activity_friends_status"></activity>
+            android:label="@string/title_activity_friends_status" />
         <activity
             android:name="com.indoor.more.FindMoreActivity"
-            android:label="@string/title_activity_find_more"></activity>
+            android:label="@string/title_activity_find_more" />
         <activity
             android:name=".ui.NavigatorActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
-            android:label="@string/title_activity_navigator"></activity>
+            android:label="@string/title_activity_navigator" />
         <activity
             android:name=".ui.AboutActivity"
-            android:label="@string/title_activity_about"></activity>
+            android:label="@string/title_activity_about" />
         <activity
             android:name=".ui.ChooseActivity"
-            android:label="@string/title_activity_about"></activity>
+            android:label="@string/title_activity_about" />
         <activity
             android:name="com.indoor.more.HowOldActivity"
-            android:label="@string/title_activity_how_old"></activity>
+            android:label="@string/title_activity_how_old" />
         <activity
             android:name="com.indoor.more.DailyArticleActivity"
-            android:label="@string/title_activity_daily_article"></activity>
+            android:label="@string/title_activity_daily_article" />
         <activity
             android:name="com.indoor.more.HypnotistActivity"
-            android:label="@string/title_activity_hypnotist"></activity>
+            android:label="@string/title_activity_hypnotist" />
         <activity
             android:name=".ui.PublishStatusActivity"
             android:label="@string/title_activity_publish_status"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.MyStatusActivity"
-            android:label="@string/title_activity_my_status"></activity>
+            android:label="@string/title_activity_my_status" />
         <activity
             android:name="com.indoor.more.AmomentActivity"
-            android:label="@string/title_activity_amoment"></activity>
+            android:label="@string/title_activity_amoment" />
     </application>
 
 </manifest>
