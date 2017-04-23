@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_chat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/common_actionbar"
-        layout="@layout/include_action_bar" />
+    <include layout="@layout/include_navi" />
 
     <FrameLayout
-        android:id="@+id/chat"
-        android:layout_width="fill_parent"
-        android:layout_height="0.0dip"
-        android:layout_weight="1.0"
-        android:background="@color/msg_chat_bg">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0">
 
-        <ImageView
-            android:id="@+id/ic"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:contentDescription="@string/hello_world"
-            android:scaleType="fitXY" />
-
-        <com.indoor.im.view.xlist.XListView
-            android:id="@+id/mListView"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sw_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:cacheColorHint="@android:color/transparent"
-            android:divider="@null"
-            android:fadingEdgeLength="0dp"
-            android:fastScrollEnabled="true"
-            android:listSelector="@color/transparent"
-            android:paddingBottom="10dp"
-            android:transcriptMode="normal" />
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rc_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
 
         <RelativeLayout
             android:id="@+id/layout_record"
@@ -49,11 +39,11 @@
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/action_settings"
-                android:src="@drawable/chat_icon_voice1" />
+                android:src="@mipmap/chat_icon_voice1" />
 
             <TextView
                 android:id="@+id/tv_voice_tips"
-                style="@style/Smile.TextView._White"
+                style="@style/style_text_white"
                 android:layout_below="@id/iv_record"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
@@ -63,5 +53,4 @@
     </FrameLayout>
 
     <include layout="@layout/include_chat_bottom_bar" />
-
 </LinearLayout>

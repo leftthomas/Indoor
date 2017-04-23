@@ -4,45 +4,48 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingTop="13dp">
+    android:paddingBottom="@dimen/margin_10"
+    android:paddingTop="@dimen/margin_15">
 
     <TextView
         android:id="@+id/tv_time"
-        style="@style/chat_text_date_style"
+        style="@style/style_text_white_small"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:padding="@dimen/margin_5" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_chat_top">
+        android:layout_marginRight="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_11">
 
-        <com.indoor.im.view.RoundImageView
+        <ImageView
             android:id="@+id/iv_avatar"
-            android:layout_width="@dimen/base_scrollview_top_height"
-            android:layout_height="@dimen/base_scrollview_top_height"
+            android:layout_width="@dimen/height_50"
+            android:layout_height="@dimen/height_50"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="@dimen/margin_chat_top"
-            android:contentDescription="@string/add_avator" />
+            android:background="@mipmap/head"
+            android:scaleType="fitXY" />
 
         <ImageView
             android:id="@+id/iv_picture"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginRight="@dimen/margin_chat_top"
-            android:layout_marginTop="10dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_5"
             android:layout_toLeftOf="@id/iv_avatar"
+            android:adjustViewBounds="true"
             android:background="@drawable/chat_right_qp"
-            android:contentDescription="@string/add_avator"
-            android:maxWidth="200.0dip"
-            android:minHeight="150dp"
-            android:minWidth="150dp"
+            android:maxHeight="150dp"
+            android:maxWidth="150dip"
+            android:minHeight="120dp"
             android:paddingBottom="5dp"
             android:paddingLeft="5dp"
-            android:paddingRight="15dp"
+            android:paddingRight="25dp"
             android:paddingTop="5dp"
-            android:scaleType="fitXY" />
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/iv_fail_resend"

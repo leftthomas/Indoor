@@ -4,47 +4,54 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingTop="13dp">
+    android:paddingBottom="@dimen/margin_10"
+    android:paddingTop="@dimen/margin_15">
 
     <TextView
         android:id="@+id/tv_time"
-        style="@style/chat_text_date_style"
+        style="@style/style_text_white_small"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:padding="@dimen/margin_5" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_chat_top">
+        android:layout_marginRight="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_11">
 
-        <com.indoor.im.view.RoundImageView
+        <ImageView
             android:id="@+id/iv_avatar"
-            android:layout_width="@dimen/base_scrollview_top_height"
-            android:layout_height="@dimen/base_scrollview_top_height"
+            android:layout_width="@dimen/height_50"
+            android:layout_height="@dimen/height_50"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="@dimen/margin_chat_top"
-            android:contentDescription="@string/add_avator" />
+            android:scaleType="fitXY"
+            android:src="@mipmap/head" />
 
         <TextView
             android:id="@+id/tv_message"
-            style="@style/chat_content_date_style"
+            style="@style/style_text_white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/margin_chat_top"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/margin_5"
             android:layout_toLeftOf="@id/iv_avatar"
             android:background="@drawable/chat_right_qp"
+            android:gravity="left|center"
+            android:lineSpacingExtra="@dimen/margin_3"
             android:maxWidth="225.0dip"
-            android:minHeight="50dp"
-            android:minWidth="50dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="15dp" />
+            android:minHeight="@dimen/height_40"
+            android:minWidth="80dp"
+            android:paddingBottom="@dimen/margin_8"
+            android:paddingLeft="@dimen/margin_15"
+            android:paddingRight="@dimen/margin_30"
+            android:paddingTop="@dimen/margin_8" />
 
         <ImageView
             android:id="@+id/iv_fail_resend"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@id/tv_message"
@@ -56,12 +63,12 @@
 
         <TextView
             android:id="@+id/tv_send_status"
-            style="@style/chat_text_name_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@id/tv_message"
+            android:textColor="@color/color_chat_send_status"
             android:textSize="12sp"
             android:visibility="invisible" />
 

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/login"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_bg">
+    android:background="@mipmap/login_bg">
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -15,10 +12,10 @@
 
         <ImageView
             android:id="@+id/iv_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:src="@drawable/ic_launcher" />
+            android:src="@mipmap/login_logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,9 +27,9 @@
             <EditText
                 android:id="@+id/et_username"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/base_action_bar_height"
+                android:layout_height="@dimen/height_title"
                 android:background="@color/transparent"
-                android:drawableLeft="@drawable/login_icon_account"
+                android:drawableLeft="@mipmap/login_icon_account"
                 android:drawablePadding="25dip"
                 android:hint="@string/login_username_hint"
                 android:paddingLeft="15dip"
@@ -44,14 +41,14 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@drawable/base_horization_line" />
+                android:background="@mipmap/base_horization_line" />
 
             <EditText
                 android:id="@+id/et_password"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/base_action_bar_height"
+                android:layout_height="@dimen/height_title"
                 android:background="@color/transparent"
-                android:drawableLeft="@drawable/login_icon_password"
+                android:drawableLeft="@mipmap/login_icon_password"
                 android:drawablePadding="25dip"
                 android:hint="@string/login_password_hint"
                 android:inputType="textPassword"
@@ -62,7 +59,7 @@
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/base_action_bar_height"
+            android:layout_height="@dimen/height_title"
             android:layout_margin="@dimen/activity_vertical_margin"
             android:background="@drawable/btn_login_selector"
             android:gravity="center"
@@ -74,7 +71,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="48dp"
-        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -88,7 +85,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/btn_register"
+            android:id="@+id/tv_register"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_marginLeft="5dp"
@@ -98,11 +95,4 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-    <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
-        android:id="@+id/progress"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="center"
-        app:mlpb_progress_color="#566da9"
-        app:mlpb_progress_stoke_width="3dp" />
-</FrameLayout>
+</RelativeLayout>

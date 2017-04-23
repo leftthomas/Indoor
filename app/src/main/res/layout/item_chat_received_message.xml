@@ -3,48 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingTop="13dp">
+    android:paddingBottom="@dimen/margin_10"
+    android:paddingTop="@dimen/margin_15">
 
     <TextView
         android:id="@+id/tv_time"
-        style="@style/chat_text_date_style"
+        style="@style/style_text_white_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:background="@color/color_msg_system_time_bg"
+        android:padding="@dimen/margin_5" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_chat_top">
+        android:layout_marginLeft="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_11">
 
-        <com.indoor.im.view.RoundImageView
+        <ImageView
             android:id="@+id/iv_avatar"
-            android:layout_width="@dimen/base_scrollview_top_height"
-            android:layout_height="@dimen/base_scrollview_top_height"
+            android:layout_width="@dimen/height_50"
+            android:layout_height="@dimen/height_50"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="@dimen/margin_chat_top"
-            android:contentDescription="@string/add_avator" />
+            android:scaleType="fitXY"
+            android:src="@mipmap/head" />
 
         <TextView
             android:id="@+id/tv_message"
+            style="@style/style_text_1e1e1e"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_chat_top"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/margin_5"
             android:layout_toRightOf="@id/iv_avatar"
             android:background="@drawable/chat_left_qp"
             android:clickable="true"
             android:focusable="true"
             android:gravity="left|center"
-            android:lineSpacingExtra="2dp"
+            android:lineSpacingExtra="@dimen/margin_3"
             android:maxWidth="225.0dip"
-            android:minHeight="50dp"
-            android:minWidth="50dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="5dp"
-            android:textColor="#ff000000"
-            android:textSize="15sp" />
+            android:minHeight="@dimen/height_40"
+            android:minWidth="80dp"
+            android:paddingBottom="@dimen/margin_10"
+            android:paddingLeft="@dimen/margin_30"
+            android:paddingRight="@dimen/margin_15"
+            android:paddingTop="@dimen/margin_10" />
 
     </RelativeLayout>
 

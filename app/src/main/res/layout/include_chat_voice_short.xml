@@ -13,10 +13,10 @@
         android:layout_height="80dp"
         android:layout_centerInParent="true"
         android:contentDescription="@string/action_settings"
-        android:src="@drawable/chat_icon_voice_short" />
+        android:src="@mipmap/chat_icon_voice_short" />
 
     <TextView
-        style="@style/Smile.TextView._White"
+        style="@style/style_text_white"
         android:layout_below="@id/iv_short"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
