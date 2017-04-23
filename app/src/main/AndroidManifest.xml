@@ -44,6 +44,8 @@
         <activity android:name=".ui.NewsActivity" />
         <activity android:name=".ui.UserInfoActivity" />
         <activity android:name=".ui.NewFriendActivity" />
+        <activity android:name=".ui.AboutUsActivity" />
+        <activity android:name=".ui.BlackListActivity" />
 
         <activity
             android:name=".ui.ChatActivity"

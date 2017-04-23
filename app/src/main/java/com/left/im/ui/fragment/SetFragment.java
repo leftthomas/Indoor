@@ -12,6 +12,8 @@ import com.left.im.R;
 import com.left.im.base.ParentWithNaviFragment;
 import com.left.im.bean.User;
 import com.left.im.model.UserModel;
+import com.left.im.ui.AboutUsActivity;
+import com.left.im.ui.BlackListActivity;
 import com.left.im.ui.LoginActivity;
 import com.left.im.ui.UserInfoActivity;
 
@@ -66,6 +68,21 @@ public class SetFragment extends ParentWithNaviFragment {
         Bundle bundle = new Bundle();
         bundle.putSerializable("u", BmobUser.getCurrentUser(getActivity(), User.class));
         startActivity(UserInfoActivity.class, bundle);
+    }
+
+    @OnClick(R.id.layout_blacklist)
+    public void onBlacklistClick(View view) {
+        startActivity(BlackListActivity.class, null);
+    }
+
+    @OnClick(R.id.layout_wallpaper)
+    public void onWallpaperClick(View view) {
+        startActivity(BlackListActivity.class, null);
+    }
+
+    @OnClick(R.id.btn_about_us)
+    public void onAboutusClick(View view) {
+        startActivity(AboutUsActivity.class, null);
     }
 
     @OnClick(R.id.btn_logout)

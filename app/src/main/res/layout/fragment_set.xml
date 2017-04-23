@@ -34,7 +34,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:background="@drawable/base_horizontal_line"></View>
+        android:background="@drawable/base_horizontal_line" />
 
     <RelativeLayout
         android:id="@+id/layout_blacklist"
@@ -42,8 +42,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn_selector"
         android:minHeight="50dp"
-        android:padding="10dp"
-        android:visibility="gone">
+        android:padding="10dp">
 
         <TextView
             style="@style/style_text_black"
@@ -63,16 +62,42 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:background="@drawable/base_horizontal_line"
-        android:visibility="gone"></View>
+        android:background="@drawable/base_horizontal_line" />
+
+    <RelativeLayout
+        android:id="@+id/layout_wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:minHeight="50dp"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/style_text_black"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/set_wallpaper" />
+
+        <TextView
+            style="@style/style_text_black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@mipmap/register_bottom_arrow" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_2"
+        android:background="@drawable/base_horizontal_line" />
 
     <RelativeLayout
         android:id="@+id/rl_switch_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_selector"
-        android:padding="10dip"
-        android:visibility="gone">
+        android:padding="10dip">
 
         <TextView
             style="@style/style_text_black"
@@ -105,16 +130,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:background="@drawable/base_horizontal_line"
-        android:visibility="gone"></View>
+        android:background="@drawable/base_horizontal_line" />
 
     <RelativeLayout
         android:id="@+id/rl_switch_voice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_selector"
-        android:padding="10dip"
-        android:visibility="gone">
+        android:padding="10dip">
 
         <TextView
             style="@style/style_text_black"
@@ -148,16 +171,14 @@
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:background="@drawable/base_horizontal_line"
-        android:visibility="gone"></View>
+        android:background="@drawable/base_horizontal_line" />
 
     <RelativeLayout
         android:id="@+id/rl_switch_vibrate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_selector"
-        android:padding="10dip"
-        android:visibility="gone">
+        android:padding="10dip">
 
         <TextView
             style="@style/style_text_black"
@@ -191,8 +212,7 @@
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_2"
-        android:background="@drawable/base_horizontal_line"
-        android:visibility="gone"></View>
+        android:background="@drawable/base_horizontal_line" />
 
     <Button
         android:id="@+id/btn_logout"
@@ -201,5 +221,13 @@
         android:layout_height="45dp"
         android:layout_margin="@dimen/activity_vertical_margin"
         android:text="@string/logout" />
+
+    <TextView
+        android:id="@+id/btn_about_us"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:text="@string/about_us" />
 
 </LinearLayout>

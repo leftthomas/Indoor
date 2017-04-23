@@ -30,9 +30,11 @@
     <string name="set_notify">接收新消息通知</string>
     <string name="set_myinfo">个人资料</string>
     <string name="set_blacklist">黑名单</string>
+    <string name="set_wallpaper">背景设置</string>
     <string name="set_voice">声音</string>
     <string name="set_vibrate">震动</string>
     <string name="logout">退出登录</string>
+    <string name="about_us">关于我们</string>
 
     <string name="longclick_speak">长按说话</string>
     <string name="picture">照片</string>
