@@ -160,14 +160,15 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
      */
     public void query() {
         List<BmobQuery<User>> queries = new ArrayList<BmobQuery<User>>();
+        queries.clear();
         if (condition.equals("只看男")) {
             BmobQuery<User> eq1 = new BmobQuery<User>();
             eq1.addWhereEqualTo("sex", "男");
             queries.add(eq1);
         } else if (condition.equals("只看女")) {
-            BmobQuery<User> eq1 = new BmobQuery<User>();
-            eq1.addWhereEqualTo("sex", "女");
-            queries.add(eq1);
+            BmobQuery<User> eq2 = new BmobQuery<User>();
+            eq2.addWhereEqualTo("sex", "女");
+            queries.add(eq2);
         } else if (condition.equals("全部（不包括好友）")) {
             BmobQuery<User> eq1 = new BmobQuery<User>();
             final ArrayList objectid_list = new ArrayList<String>();

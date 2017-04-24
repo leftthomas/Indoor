@@ -25,7 +25,7 @@ public class WallPaperAdapter extends BaseRecyclerAdapter<WallPapers> {
 
     @Override
     public void bindView(BaseRecyclerHolder holder, WallPapers wallPapers, int position) {
-        holder.setImageView(wallPapers == null ? null : wallPapers.getPicture(), R.mipmap.wallpaper, R.id.iv_wall_paper);
+        holder.setImageView(wallPapers.getPicture(), R.mipmap.wallpaper, R.id.iv_wall_paper);
     }
 
 }

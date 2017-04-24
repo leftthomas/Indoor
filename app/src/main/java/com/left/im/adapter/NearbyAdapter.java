@@ -26,9 +26,9 @@ public class NearbyAdapter extends BaseRecyclerAdapter<User> {
 
     @Override
     public void bindView(BaseRecyclerHolder holder, User user, int position) {
-        holder.setImageView(user == null ? null : user.getAvatar(), R.mipmap.head, R.id.iv_avatar);
-        holder.setText(R.id.tv_name, user == null ? "未知" : user.getUsername());
-        holder.setText(R.id.tv_time, user == null ? "未知" : user.getUpdatedAt());
+        holder.setImageView(user.getAvatar(), R.mipmap.head, R.id.iv_avatar);
+        holder.setText(R.id.tv_name, user.getUsername());
+        holder.setText(R.id.tv_time, user.getUpdatedAt());
         holder.setText(R.id.tv_distance, (user.getLocation() == null || BmobIMApplication.getCurrent_user_location()
                 == null) ? "未知" : (int) (user.getLocation().distanceInMilesTo(
                 BmobIMApplication.getCurrent_user_location())) + "米");

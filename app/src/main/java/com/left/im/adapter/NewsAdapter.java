@@ -25,9 +25,9 @@ public class NewsAdapter extends BaseRecyclerAdapter<News> {
 
     @Override
     public void bindView(BaseRecyclerHolder holder, News news, int position) {
-        holder.setImageView(news == null ? null : news.getPhoto(), R.mipmap.news, R.id.iv_news);
-        holder.setText(R.id.tv_title, news == null ? "未知" : news.getTitle());
-        holder.setText(R.id.tv_describe, news == null ? "未知" : news.getDescribe());
+        holder.setImageView(news.getPhoto(), R.mipmap.news, R.id.iv_news);
+        holder.setText(R.id.tv_title, news.getTitle());
+        holder.setText(R.id.tv_describe, news.getDescribe());
     }
 
 }

@@ -26,9 +26,9 @@ public class ShopAdapter extends BaseRecyclerAdapter<Goods> {
     @Override
     public void bindView(BaseRecyclerHolder holder, Goods good, int position) {
 
-        holder.setImageView(good == null ? null : good.getPhoto(), R.mipmap.good, R.id.iv_good);
-        holder.setText(R.id.tv_name, good == null ? "未知" : good.getName());
-        holder.setText(R.id.tv_price, good == null ? "未知" : good.getPrice());
+        holder.setImageView(good.getPhoto(), R.mipmap.good, R.id.iv_good);
+        holder.setText(R.id.tv_name, good.getName());
+        holder.setText(R.id.tv_price, good.getPrice());
     }
 
 }
