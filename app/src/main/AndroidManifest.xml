@@ -68,6 +68,7 @@
         <activity android:name=".ui.DailyArticleActivity" />
         <activity android:name=".ui.HowOldActivity" />
         <activity android:name=".ui.HypnotistActivity" />
+        <activity android:name=".ui.ArActivity" />
 
         <activity
             android:name=".ui.ChatActivity"

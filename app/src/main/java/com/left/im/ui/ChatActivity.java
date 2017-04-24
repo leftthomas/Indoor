@@ -1,10 +1,13 @@
 package com.left.im.ui;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -134,6 +137,7 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
             }
         }
     };
+    Context context;
     BmobIMConversation c;
     Toast toast;
     private Drawable[] drawable_Anims;// 话筒动画
@@ -147,6 +151,7 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        context = this;
         c = BmobIMConversation.obtain(BmobIMClient.getInstance(), (BmobIMConversation) getBundle().getSerializable("c"));
         initNaviView();
         initSwipeLayout();
@@ -186,9 +191,23 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
 
             @Override
             public boolean onItemLongClick(int position) {
-                //这里省了个懒，直接长按就删除了该消息
-                c.deleteMessage(adapter.getItem(position));
-                adapter.remove(position);
+                final int p = position;
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("删除该消息？");
+                builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        c.deleteMessage(adapter.getItem(p));
+                        adapter.remove(p);
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
                 return true;
             }
         });
@@ -296,7 +315,7 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
     }
 
     /**
-     * 显示录音时间过短的Toast
+     * 显示录音时间过短的提示
      *
      * @return void
      * @Title: showShortToast

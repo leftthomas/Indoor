@@ -60,7 +60,7 @@
             android:background="@drawable/btn_chat_record_selector"
             android:gravity="center"
             android:text="@string/longclick_speak"
-            android:visibility="gone"></Button>
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_chat_voice"
@@ -69,7 +69,7 @@
             android:layout_marginLeft="6dp"
             android:background="@drawable/btn_chat_voice_selector"
             android:gravity="center"
-            android:textColor="@color/base_color_text_black"></Button>
+            android:textColor="@color/base_color_text_black" />
 
         <Button
             android:id="@+id/btn_chat_keyboard"
@@ -78,7 +78,7 @@
             android:background="@drawable/btn_chat_keyboard_selector"
             android:gravity="center"
             android:textColor="@color/base_color_text_black"
-            android:visibility="gone"></Button>
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_chat_send"

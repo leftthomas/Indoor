@@ -1,7 +1,9 @@
 package com.left.im.ui.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -112,8 +114,23 @@ public class ConversationFragment extends ParentWithNaviFragment {
 
             @Override
             public boolean onItemLongClick(int position) {
-                adapter.getItem(position).onLongClick(getActivity());
-                adapter.remove(position);
+                final int p = position;
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("删除该会话？");
+                builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        adapter.getItem(p).onLongClick(getActivity());
+                        adapter.remove(p);
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
                 return true;
             }
         });
