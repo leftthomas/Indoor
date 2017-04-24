@@ -68,7 +68,6 @@
             android:layout_marginRight="@dimen/margin_16"
             android:background="@drawable/btn_login_selector"
             android:text="@string/distance" />
-
     </LinearLayout>
 
     <View

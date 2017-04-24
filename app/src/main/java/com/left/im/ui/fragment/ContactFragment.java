@@ -175,7 +175,9 @@ public class ContactFragment extends ParentWithNaviFragment {
                     startActivity(FriendDistributionActivity.class, null);
                 } else if (position == 3) {
                     //跳转到朋友圈页面
-                    startActivity(FriendCircleActivity.class, null);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("u", BmobUser.getCurrentUser(getActivity(), User.class));
+                    startActivity(FriendCircleActivity.class, bundle);
                 } else if (position == 4) {
                     //跳转到生活周边页面
                     startActivity(LivingSurroundingsActivity.class, null);
