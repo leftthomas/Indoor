@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <include layout="@layout/include_navi" />
 
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/howold"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp">
+
+        <ImageView
+            android:id="@+id/id_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/t4" />
+
+        <TextView
+            android:id="@+id/id_age_and_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hint"
+            android:drawableLeft="@drawable/male"
+            android:gravity="center"
+            android:text="123"
+            android:textColor="#035D91"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+    <com.left.im.util.CircleProgressBar
+        android:id="@+id/progress"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_centerInParent="true"
+        app:mlpb_progress_color="#566da9"
+        app:mlpb_progress_stoke_width="3dp" />
+
+</RelativeLayout>
