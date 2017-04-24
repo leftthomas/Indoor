@@ -29,6 +29,7 @@
     <string name="friend_distribution">朋友分布</string>
     <string name="living_surroundings">生活周边</string>
     <string name="discovery">发现</string>
+    <string name="distance">距离</string>
 
     <string name="chat">聊天</string>
     <string name="add_friend">添加好友</string>

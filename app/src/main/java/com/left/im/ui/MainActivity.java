@@ -1,5 +1,6 @@
 package com.left.im.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -7,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
 import com.left.im.R;
 import com.left.im.base.BaseActivity;
 import com.left.im.bean.User;
@@ -33,7 +38,9 @@ import cn.bmob.newim.listener.ConnectStatusChangeListener;
 import cn.bmob.newim.listener.ObseverListener;
 import cn.bmob.newim.notification.BmobNotificationManager;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobGeoPoint;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * @author :smile
@@ -42,6 +49,10 @@ import cn.bmob.v3.exception.BmobException;
  */
 public class MainActivity extends BaseActivity implements ObseverListener {
 
+    //声明AMapLocationClient类对象
+    public AMapLocationClient mLocationClient = null;
+    //声明AMapLocationClientOption对象
+    public AMapLocationClientOption mLocationOption = null;
     @Bind(R.id.btn_conversation)
     Button btn_conversation;
     @Bind(R.id.btn_set)
@@ -50,22 +61,46 @@ public class MainActivity extends BaseActivity implements ObseverListener {
     Button btn_news;
     @Bind(R.id.btn_shop)
     Button btn_shop;
-
     @Bind(R.id.btn_contact)
     Button btn_contact;
-
     @Bind(R.id.iv_conversation_tips)
     ImageView iv_conversation_tips;
-
     @Bind(R.id.iv_contact_tips)
     ImageView iv_contact_tips;
     ContactFragment contactFragment;
-    private Button[] mTabs;
-    private ConversationFragment conversationFragment;
-    private NewsFragment newsFragment;
-    private ShopFragment shopFragment;
-    private SetFragment setFragment;
-    private Fragment[] fragments;
+    Button[] mTabs;
+    ConversationFragment conversationFragment;
+    NewsFragment newsFragment;
+    ShopFragment shopFragment;
+    SetFragment setFragment;
+    Fragment[] fragments;
+    User user;
+    Context context;
+    //声明定位回调监听器
+    public AMapLocationListener mLocationListener = new AMapLocationListener() {
+        @Override
+        public void onLocationChanged(AMapLocation aMapLocation) {
+            if (aMapLocation != null) {
+                if (aMapLocation.getErrorCode() == 0) {
+                    final User newUser = new User();
+                    newUser.setLocation(new BmobGeoPoint(aMapLocation.getLongitude(), aMapLocation.getLatitude()));
+                    newUser.update(context, user.getObjectId(), new UpdateListener() {
+                        @Override
+                        public void onSuccess() {
+                        }
+
+                        @Override
+                        public void onFailure(int i, String s) {
+                            log(s);
+                        }
+                    });
+                } else {
+                    //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
+                    log(aMapLocation.getErrorCode() + ", errInfo:" + aMapLocation.getErrorInfo());
+                }
+            }
+        }
+    };
     private int index;
     private int currentTabIndex;
 
@@ -74,7 +109,8 @@ public class MainActivity extends BaseActivity implements ObseverListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //connect server
-        User user = BmobUser.getCurrentUser(this, User.class);
+        user = BmobUser.getCurrentUser(this, User.class);
+        context = this;
         BmobIM.connect(user.getObjectId(), new ConnectListener() {
             @Override
             public void done(String uid, BmobException e) {
@@ -96,6 +132,17 @@ public class MainActivity extends BaseActivity implements ObseverListener {
         });
         //解决leancanary提示InputMethodManager内存泄露的问题
         IMMLeaks.fixFocusedViewLeak(getApplication());
+
+        //初始化定位
+        mLocationClient = new AMapLocationClient(getApplicationContext());
+        //设置定位回调监听
+        mLocationClient.setLocationListener(mLocationListener);
+        //初始化AMapLocationClientOption对象
+        mLocationOption = new AMapLocationClientOption();
+        //给定位客户端对象设置定位参数
+        mLocationClient.setLocationOption(mLocationOption);
+        //启动定位
+        mLocationClient.startLocation();
     }
 
     @Override
@@ -178,6 +225,10 @@ public class MainActivity extends BaseActivity implements ObseverListener {
         super.onDestroy();
         //清理导致内存泄露的资源
         BmobIM.getInstance().clear();
+        //停止定位后，本地定位服务并不会被销毁
+        mLocationClient.stopLocation();
+        //销毁定位客户端，同时销毁本地定位服务。
+        mLocationClient.onDestroy();
     }
 
     /**

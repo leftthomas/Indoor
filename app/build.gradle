@@ -13,6 +13,10 @@ android {
         targetSdkVersion 25
         versionCode 3
         versionName "1.0"
+        ndk {
+            //设置支持的SO库架构
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+        }
     }
     buildTypes {
         release {
@@ -38,4 +42,8 @@ dependencies {
     compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
     compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //高德地图SDK
+    compile 'com.amap.api:location:latest.integration'
+    compile 'com.amap.api:search:latest.integration'
+    compile 'com.amap.api:navi-3dmap:latest.integration'
 }

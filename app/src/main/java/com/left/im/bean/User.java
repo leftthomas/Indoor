@@ -3,6 +3,7 @@ package com.left.im.bean;
 import com.left.im.db.NewFriend;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobGeoPoint;
 
 /**
  * @author :smile
@@ -15,14 +16,21 @@ public class User extends BmobUser {
     private String chat_background;
     private String space_background;
     private String sex;
-
+    private BmobGeoPoint location;
     public User() {
     }
-
     public User(NewFriend friend) {
         setObjectId(friend.getUid());
         setUsername(friend.getName());
         setAvatar(friend.getAvatar());
+    }
+
+    public BmobGeoPoint getLocation() {
+        return location;
+    }
+
+    public void setLocation(BmobGeoPoint location) {
+        this.location = location;
     }
 
     public String getSex() {
