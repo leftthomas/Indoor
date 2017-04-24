@@ -32,7 +32,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.orhanobut:logger:1.4'
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'me.drakeet.labelview:labelview:0.8'
     //bmob-im
     compile 'cn.bmob.android:bmob-im:2.0.5@aar'
     //bmob-sdk:3.4.7
