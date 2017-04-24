@@ -2,6 +2,7 @@ package com.left.im.adapter;
 
 import android.content.Context;
 
+import com.left.im.BmobIMApplication;
 import com.left.im.R;
 import com.left.im.adapter.base.BaseRecyclerAdapter;
 import com.left.im.adapter.base.BaseRecyclerHolder;
@@ -28,7 +29,9 @@ public class NearbyAdapter extends BaseRecyclerAdapter<User> {
         holder.setImageView(user == null ? null : user.getAvatar(), R.mipmap.head, R.id.iv_avatar);
         holder.setText(R.id.tv_name, user == null ? "未知" : user.getUsername());
         holder.setText(R.id.tv_time, user == null ? "未知" : user.getUpdatedAt());
-        holder.setText(R.id.tv_distance, user == null ? "未知" : user.getSex());
+        holder.setText(R.id.tv_distance, (user.getLocation() == null || BmobIMApplication.getCurrent_user_location()
+                == null) ? "未知" : (int) (user.getLocation().distanceInMilesTo(
+                BmobIMApplication.getCurrent_user_location())) + "米");
     }
 
 }

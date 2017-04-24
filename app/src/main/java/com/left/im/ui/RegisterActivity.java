@@ -61,7 +61,7 @@ public class RegisterActivity extends ParentWithNaviActivity {
                     if (e.getErrorCode() == BaseModel.CODE_NOT_EQUAL) {
                         et_password_again.setText("");
                     }
-                    toast(e.getMessage() + "(" + e.getErrorCode() + ")");
+                    log(e.getMessage());
                 }
             }
         });

@@ -40,6 +40,7 @@ import butterknife.ButterKnife;
 import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMConversation;
 import cn.bmob.newim.bean.BmobIMUserInfo;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.DeleteListener;
 import cn.bmob.v3.listener.FindListener;
 
@@ -166,7 +167,9 @@ public class ContactFragment extends ParentWithNaviFragment {
                     startActivity(NewFriendActivity.class, null);
                 } else if (position == 1) {
                     //跳转到附近的人页面
-                    startActivity(NearbyPeopleActivity.class, null);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("u", BmobUser.getCurrentUser(getActivity(), User.class));
+                    startActivity(NearbyPeopleActivity.class, bundle);
                 } else if (position == 2) {
                     //跳转到朋友分布页面
                     startActivity(FriendDistributionActivity.class, null);

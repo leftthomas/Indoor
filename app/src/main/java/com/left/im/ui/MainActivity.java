@@ -12,6 +12,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.left.im.BmobIMApplication;
 import com.left.im.R;
 import com.left.im.base.BaseActivity;
 import com.left.im.bean.User;
@@ -87,6 +88,8 @@ public class MainActivity extends BaseActivity implements ObseverListener {
                     newUser.update(context, user.getObjectId(), new UpdateListener() {
                         @Override
                         public void onSuccess() {
+                            //记得更新下当前用户的地理位置信息，用来后续做比较
+                            BmobIMApplication.setCurrent_user_location(newUser.getLocation());
                         }
 
                         @Override
