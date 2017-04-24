@@ -46,6 +46,7 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
     User user;
     Context context;
     String condition = "全部";
+    ArrayList objectid_list;
     private CharSequence[] items = {"全部", "只看男", "只看女", "全部（不包括好友）",
             "只看男（不包括好友）", "只看女（不包括好友）"};
 
@@ -171,7 +172,7 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
             queries.add(eq2);
         } else if (condition.equals("全部（不包括好友）")) {
             BmobQuery<User> eq1 = new BmobQuery<User>();
-            final ArrayList objectid_list = new ArrayList<String>();
+            objectid_list = new ArrayList<String>();
             UserModel.getInstance().queryFriends(new FindListener<Friend>() {
                 @Override
                 public void onSuccess(List<Friend> list) {
@@ -189,7 +190,7 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
             queries.add(eq1);
         } else if (condition.equals("只看男（不包括好友）")) {
             BmobQuery<User> eq1 = new BmobQuery<User>();
-            final ArrayList objectid_list = new ArrayList<String>();
+            objectid_list = new ArrayList<String>();
             UserModel.getInstance().queryFriends(new FindListener<Friend>() {
                 @Override
                 public void onSuccess(List<Friend> list) {
@@ -210,7 +211,7 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
             queries.add(eq2);
         } else if (condition.equals("只看女（不包括好友）")) {
             BmobQuery<User> eq1 = new BmobQuery<User>();
-            final ArrayList objectid_list = new ArrayList<String>();
+            objectid_list = new ArrayList<String>();
             UserModel.getInstance().queryFriends(new FindListener<Friend>() {
                 @Override
                 public void onSuccess(List<Friend> list) {

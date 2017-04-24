@@ -22,10 +22,13 @@ import com.left.im.adapter.base.IMutlipleItem;
 import com.left.im.base.ImageLoaderFactory;
 import com.left.im.base.ParentWithNaviActivity;
 import com.left.im.bean.Blog;
+import com.left.im.bean.Friend;
 import com.left.im.bean.User;
+import com.left.im.model.UserModel;
 import com.left.im.util.Util;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -153,9 +156,32 @@ public class FriendCircleActivity extends ParentWithNaviActivity {
      * 查询动态
      */
     public void query() {
-        BmobQuery<Blog> query = new BmobQuery<Blog>();
+        final ArrayList<User> friends = new ArrayList<>();
+        UserModel.getInstance().queryFriends(new FindListener<Friend>() {
+            @Override
+            public void onSuccess(List<Friend> list) {
+                for (Friend friend : list) {
+                    friends.add(friend.getFriendUser());
+                }
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                log(s);
+            }
+        });
+        BmobQuery<Blog> query1 = new BmobQuery<Blog>();
+        query1.addWhereContainedIn("author", friends);
+        BmobQuery<Blog> query2 = new BmobQuery<Blog>();
         // 查询当前用户的所有帖子
-        query.addWhereEqualTo("author", user);
+        query2.addWhereEqualTo("author", user);
+        //最后组装完整的条件
+        List<BmobQuery<Blog>> orQuerys = new ArrayList<BmobQuery<Blog>>();
+        orQuerys.add(query1);
+        orQuerys.add(query2);
+        //查询符合整个条件的人
+        BmobQuery<Blog> query = new BmobQuery<Blog>();
+        query.or(orQuerys);
         query.order("-updatedAt");
         // 希望在查询帖子信息的同时也把发布人的信息查询出来
         query.include("author");
