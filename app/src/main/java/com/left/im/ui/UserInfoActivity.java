@@ -1,19 +1,19 @@
 package com.left.im.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.gc.materialdesign.widgets.SnackBar;
 import com.left.im.R;
 import com.left.im.base.ImageLoaderFactory;
 import com.left.im.base.ParentWithNaviActivity;
@@ -43,8 +43,7 @@ import cn.bmob.v3.listener.UploadFileListener;
  */
 public class UserInfoActivity extends ParentWithNaviActivity {
 
-    @Bind(R.id.layout_all)
-    LinearLayout layout_all;
+
     @Bind(R.id.iv_avator)
     ImageView iv_avator;
     @Bind(R.id.tv_name)
@@ -60,6 +59,7 @@ public class UserInfoActivity extends ParentWithNaviActivity {
     User user;
     BmobIMUserInfo info;
     Context context;
+    Activity activity;
     //头像Bitmap
     Bitmap head;
 
@@ -74,6 +74,7 @@ public class UserInfoActivity extends ParentWithNaviActivity {
         setContentView(R.layout.activity_user_info);
         initNaviView();
         context = this;
+        activity = this;
         user = (User) getBundle().getSerializable("u");
         if (user.getObjectId().equals(getCurrentUid())) {
             btn_add_friend.setVisibility(View.GONE);
@@ -113,7 +114,7 @@ public class UserInfoActivity extends ParentWithNaviActivity {
                     newUser.update(context, user.getObjectId(), new UpdateListener() {
                         @Override
                         public void onSuccess() {
-                            Snackbar.make(layout_all, "已将性别修改为女", Snackbar.LENGTH_SHORT).show();
+                            new SnackBar(activity, "已将性别修改为女", "", null).show();
                             tv_sex.setText("女");
                         }
 
@@ -132,7 +133,7 @@ public class UserInfoActivity extends ParentWithNaviActivity {
                     newUser.update(context, user.getObjectId(), new UpdateListener() {
                         @Override
                         public void onSuccess() {
-                            Snackbar.make(layout_all, "已将性别修改为男", Snackbar.LENGTH_SHORT).show();
+                            new SnackBar(activity, "已将性别修改为男", "", null).show();
                             tv_sex.setText("男");
                         }
 

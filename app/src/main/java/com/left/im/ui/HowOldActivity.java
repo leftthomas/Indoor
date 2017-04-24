@@ -11,16 +11,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.facepp.error.FaceppParseException;
+import com.gc.materialdesign.views.ProgressBarCircularIndeterminate;
+import com.gc.materialdesign.widgets.SnackBar;
 import com.left.im.R;
 import com.left.im.base.ParentWithNaviActivity;
-import com.left.im.util.CircleProgressBar;
 import com.left.im.util.FaceppDetect;
 
 import org.json.JSONArray;
@@ -45,13 +44,14 @@ public class HowOldActivity extends ParentWithNaviActivity {
     ImageView mphoto;
     @Bind(R.id.id_age_and_gender)
     TextView tv;
-    @Bind(R.id.howold)
-    FrameLayout frameLayout;
-    @Bind(R.id.progress)
-    CircleProgressBar progress;
+    @Bind(R.id.progressBarCircularIndeterminate)
+    ProgressBarCircularIndeterminate progressBarCircularIndeterminate;
+
+
     private String mCurrentPhotoStr;
     private Bitmap mPhotoImg;
     private Paint mPaint;
+
     private Handler mhandler = new Handler() {
 
         public void handleMessage(Message msg) {
@@ -100,9 +100,10 @@ public class HowOldActivity extends ParentWithNaviActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_how_old);
         initNaviView();
-        progress.setVisibility(View.GONE);
         mPaint = new Paint();
+        progressBarCircularIndeterminate.setVisibility(View.INVISIBLE);
     }
+
 
     @Override
     protected void onActivityResult(int arg0, int arg1, Intent arg2) {
@@ -130,7 +131,7 @@ public class HowOldActivity extends ParentWithNaviActivity {
         options.inJustDecodeBounds = false;
         mPhotoImg = BitmapFactory.decodeFile(mCurrentPhotoStr, options);
         mphoto.setImageBitmap(mPhotoImg);
-        progress.setVisibility(View.VISIBLE);
+        progressBarCircularIndeterminate.setVisibility(View.VISIBLE);
         FaceppDetect.detect(mPhotoImg, new FaceppDetect.CallBack() {
 
             @Override
@@ -161,7 +162,7 @@ public class HowOldActivity extends ParentWithNaviActivity {
             JSONArray faces = rs.getJSONArray("face");
             int faceCount = faces.length();
             if (faceCount == 0)
-                Snackbar.make(frameLayout, "没有检测到人脸", Snackbar.LENGTH_SHORT).show();
+                new SnackBar(this, "没有检测到人脸", "", null).show();
             for (int i = 0; i < faceCount; i++) {
 
                 JSONObject face = faces.getJSONObject(i);
@@ -195,10 +196,10 @@ public class HowOldActivity extends ParentWithNaviActivity {
                 mPhotoImg = bitmap;
             }
             mphoto.setImageBitmap(mPhotoImg);
-            progress.setVisibility(View.GONE);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        progressBarCircularIndeterminate.setVisibility(View.INVISIBLE);
     }
 
     //绘制人物信息图
