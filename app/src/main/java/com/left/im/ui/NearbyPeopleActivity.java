@@ -46,7 +46,6 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
     User user;
     Context context;
     String condition = "全部";
-    ArrayList objectid_list;
     private CharSequence[] items = {"全部", "只看男", "只看女", "全部（不包括好友）",
             "只看男（不包括好友）", "只看女（不包括好友）"};
 
@@ -161,80 +160,19 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
      */
     public void query() {
         List<BmobQuery<User>> queries = new ArrayList<BmobQuery<User>>();
-        queries.clear();
-        if (condition.equals("只看男")) {
+        if (condition.equals("只看男") || condition.equals("只看男（不包括好友）")) {
             BmobQuery<User> eq1 = new BmobQuery<User>();
             eq1.addWhereEqualTo("sex", "男");
             queries.add(eq1);
-        } else if (condition.equals("只看女")) {
-            BmobQuery<User> eq2 = new BmobQuery<User>();
-            eq2.addWhereEqualTo("sex", "女");
-            queries.add(eq2);
-        } else if (condition.equals("全部（不包括好友）")) {
+        } else if (condition.equals("只看女") || condition.equals("只看女（不包括好友）")) {
             BmobQuery<User> eq1 = new BmobQuery<User>();
-            objectid_list = new ArrayList<String>();
-            UserModel.getInstance().queryFriends(new FindListener<Friend>() {
-                @Override
-                public void onSuccess(List<Friend> list) {
-                    for (Friend u : list) {
-                        objectid_list.add(u.getFriendUser().getObjectId());
-                    }
-                }
-
-                @Override
-                public void onError(int i, String s) {
-                    log(s);
-                }
-            });
-            eq1.addWhereNotContainedIn("objectId", objectid_list);
+            eq1.addWhereEqualTo("sex", "女");
             queries.add(eq1);
-        } else if (condition.equals("只看男（不包括好友）")) {
-            BmobQuery<User> eq1 = new BmobQuery<User>();
-            objectid_list = new ArrayList<String>();
-            UserModel.getInstance().queryFriends(new FindListener<Friend>() {
-                @Override
-                public void onSuccess(List<Friend> list) {
-                    for (Friend u : list) {
-                        objectid_list.add(u.getFriendUser().getObjectId());
-                    }
-                }
-
-                @Override
-                public void onError(int i, String s) {
-                    log(s);
-                }
-            });
-            eq1.addWhereNotContainedIn("objectId", objectid_list);
-            queries.add(eq1);
-            BmobQuery<User> eq2 = new BmobQuery<User>();
-            eq2.addWhereEqualTo("sex", "男");
-            queries.add(eq2);
-        } else if (condition.equals("只看女（不包括好友）")) {
-            BmobQuery<User> eq1 = new BmobQuery<User>();
-            objectid_list = new ArrayList<String>();
-            UserModel.getInstance().queryFriends(new FindListener<Friend>() {
-                @Override
-                public void onSuccess(List<Friend> list) {
-                    for (Friend u : list) {
-                        objectid_list.add(u.getFriendUser().getObjectId());
-                    }
-                }
-
-                @Override
-                public void onError(int i, String s) {
-                    log(s);
-                }
-            });
-            eq1.addWhereNotContainedIn("objectId", objectid_list);
-            queries.add(eq1);
-            BmobQuery<User> eq2 = new BmobQuery<User>();
-            eq2.addWhereEqualTo("sex", "女");
-            queries.add(eq2);
         }
         //所有查询记得加上这一条，要把当前用户自己给排除掉
-        BmobQuery<User> eq3 = new BmobQuery<User>();
-        eq3.addWhereNotEqualTo("objectId", user.getObjectId());
-        queries.add(eq3);
+        BmobQuery<User> eq2 = new BmobQuery<User>();
+        eq2.addWhereNotEqualTo("objectId", user.getObjectId());
+        queries.add(eq2);
         //查询符合整个and条件的人
         BmobQuery<User> query = new BmobQuery<User>();
         query.and(queries);
@@ -243,10 +181,41 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
         //执行查询方法
         query.findObjects(this, new FindListener<User>() {
             @Override
-            public void onSuccess(List<User> list) {
-                adapter.bindDatas(list);
-                adapter.notifyDataSetChanged();
-                sw_refresh.setRefreshing(false);
+            public void onSuccess(final List<User> list) {
+                //把好友排除掉
+                if (condition.equals("只看男（不包括好友）") || condition.equals("只看女（不包括好友）") || condition.equals("全部（不包括好友）")) {
+                    UserModel.getInstance().queryFriends(new FindListener<Friend>() {
+                        @Override
+                        public void onSuccess(List<Friend> friends) {
+                            ArrayList<User> result = new ArrayList<User>();
+                            ArrayList<String> obj_list = new ArrayList<String>();
+                            for (Friend friend : friends) {
+                                obj_list.add(friend.getFriendUser().getObjectId());
+                            }
+                            for (User u : list) {
+                                //判断是否为好友
+                                if (!obj_list.contains(u.getObjectId())) {
+                                    result.add(u);
+                                }
+                            }
+                            adapter.bindDatas(result);
+                            adapter.notifyDataSetChanged();
+                            sw_refresh.setRefreshing(false);
+                        }
+
+                        @Override
+                        public void onError(int i, String s) {
+                            adapter.bindDatas(null);
+                            adapter.notifyDataSetChanged();
+                            sw_refresh.setRefreshing(false);
+                            log(s);
+                        }
+                    });
+                } else {
+                    adapter.bindDatas(list);
+                    adapter.notifyDataSetChanged();
+                    sw_refresh.setRefreshing(false);
+                }
             }
 
             @Override
@@ -258,5 +227,4 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
             }
         });
     }
-
 }
