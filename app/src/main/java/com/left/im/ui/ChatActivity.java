@@ -2,10 +2,15 @@ package com.left.im.ui;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,6 +42,7 @@ import com.left.im.base.ParentWithNaviActivity;
 import com.left.im.util.Util;
 import com.orhanobut.logger.Logger;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -141,6 +147,8 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
     Context context;
     BmobIMConversation c;
     Toast toast;
+    // 拍照后得到的图片地址
+    private String localCameraPath = "";
     private Drawable[] drawable_Anims;// 话筒动画
 
     @Override
@@ -402,7 +410,7 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
 
     @OnClick(R.id.tv_camera)
     public void onCameraClick(View view) {
-        sendRemoteImageMessage();
+        sendLocalCameraMessage();
     }
 
     @OnClick(R.id.tv_location)
@@ -473,15 +481,62 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
     }
 
     /**
+     * 发送本地照相机图片地址
+     */
+    public void sendLocalCameraMessage() {
+        Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        File dir = new File("indoor");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File file = new File(dir, String.valueOf(System.currentTimeMillis()) + ".jpg");
+        localCameraPath = file.getPath();
+        Uri imageUri = Uri.fromFile(file);
+        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(openCameraIntent, 1);
+    }
+
+    /**
      * 发送本地图片地址
      */
     public void sendLocalImageMessage() {
-        //正常情况下，需要调用系统的图库或拍照功能获取到图片的本地地址，开发者只需要将本地的文件地址传过去就可以发送文件类型的消息
-        BmobIMImageMessage image = new BmobIMImageMessage("/storage/emulated/0/bimagechooser/IMG_20160302_172003.jpg");
-        c.sendMessage(image, listener);
-//        //因此也可以使用BmobIMFileMessage来发送文件消息
-//        BmobIMFileMessage file =new BmobIMFileMessage("文件地址");
-//        c.sendMessage(file,listener);
+        Intent intent;
+        if (Build.VERSION.SDK_INT < 19) {
+            intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/*");
+        } else {
+            intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        }
+        startActivityForResult(intent, 2);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case 1:// 当取到值的时候才上传path路径下的图片到服务器
+                    BmobIMImageMessage image = new BmobIMImageMessage(localCameraPath);
+                    c.sendMessage(image, listener);
+                    break;
+                case 2:
+                    if (data != null) {
+                        Uri selectedImage = data.getData();
+                        if (selectedImage != null) {
+                            Cursor cursor = getContentResolver().query(selectedImage, null, null, null, null);
+                            cursor.moveToFirst();
+                            int columnIndex = cursor.getColumnIndex("_data");
+                            String localSelectPath = cursor.getString(columnIndex);
+                            cursor.close();
+                            if (localSelectPath == null || localSelectPath.equals("null")) {
+                                return;
+                            }
+                            BmobIMImageMessage image2 = new BmobIMImageMessage(localSelectPath);
+                            c.sendMessage(image2, listener);
+                        }
+                    }
+                    break;
+            }
+        }
     }
 
     /**

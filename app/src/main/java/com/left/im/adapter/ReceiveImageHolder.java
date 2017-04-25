@@ -22,7 +22,7 @@ import cn.bmob.newim.bean.BmobIMMessage;
 import cn.bmob.newim.bean.BmobIMUserInfo;
 
 /**
- * 接收到的文本类型
+ * 接收到的图片类型
  */
 public class ReceiveImageHolder extends BaseViewHolder {
 
@@ -87,7 +87,6 @@ public class ReceiveImageHolder extends BaseViewHolder {
         iv_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                toast("点击图片:" + message.getRemoteUrl() + "");
                 if (onRecyclerViewListener != null) {
                     onRecyclerViewListener.onItemClick(getAdapterPosition());
                 }

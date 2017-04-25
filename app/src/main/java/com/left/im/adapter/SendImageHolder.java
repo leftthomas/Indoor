@@ -24,7 +24,7 @@ import cn.bmob.newim.listener.MessageSendListener;
 import cn.bmob.v3.exception.BmobException;
 
 /**
- * 发送的文本类型
+ * 发送的图片类型
  */
 public class SendImageHolder extends BaseViewHolder {
 
