@@ -111,8 +111,8 @@ public class MainActivity extends BaseActivity implements ObseverListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //connect server
         user = BmobUser.getCurrentUser(this, User.class);
+        //connect server
         context = this;
         BmobIM.connect(user.getObjectId(), new ConnectListener() {
             @Override
@@ -135,7 +135,6 @@ public class MainActivity extends BaseActivity implements ObseverListener {
         });
         //解决leancanary提示InputMethodManager内存泄露的问题
         IMMLeaks.fixFocusedViewLeak(getApplication());
-
         //初始化定位
         mLocationClient = new AMapLocationClient(getApplicationContext());
         //设置定位回调监听

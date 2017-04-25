@@ -110,10 +110,21 @@ public class UserModel extends BaseModel {
         user.setPassword(password);
         //默认设置用户注册之后性别为男
         user.setSex("男");
+        user.setAvatar("");
         user.signUp(getContext(), new SaveListener() {
             @Override
             public void onSuccess() {
-                listener.done(user, null);
+                user.login(getContext(), new SaveListener() {
+                    @Override
+                    public void onSuccess() {
+                        listener.done(getCurrentUser(), null);
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s) {
+                        listener.done(user, new BmobException(i, s));
+                    }
+                });
             }
 
             @Override

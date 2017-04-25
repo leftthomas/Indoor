@@ -8,11 +8,8 @@ import android.widget.EditText;
 import com.left.im.R;
 import com.left.im.base.ParentWithNaviActivity;
 import com.left.im.bean.User;
-import com.left.im.event.FinishEvent;
 import com.left.im.model.BaseModel;
 import com.left.im.model.UserModel;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -58,7 +55,6 @@ public class RegisterActivity extends ParentWithNaviActivity {
             @Override
             public void done(Object o, BmobException e) {
                 if (e == null) {
-                    EventBus.getDefault().post(new FinishEvent());
                     User user = (User) o;
                     BmobIM.getInstance().updateUserInfo(new BmobIMUserInfo(user.getObjectId(), user.getUsername(), user.getAvatar()));
                     startActivity(MainActivity.class, null, true);
@@ -66,7 +62,7 @@ public class RegisterActivity extends ParentWithNaviActivity {
                     if (e.getErrorCode() == BaseModel.CODE_NOT_EQUAL) {
                         et_password_again.setText("");
                     }
-                    log(e.getMessage());
+                    toast(e.getMessage());
                 }
             }
         });
