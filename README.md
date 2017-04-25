@@ -18,4 +18,5 @@
 
 * apk文件夹下是一个打包好的apk，可以直接运行
 * 以下展示下基于BmobNewIM SDK demo改造而来的应用，添加了一些功能，修改了一些例如session之类的bug和之前demo没有实现的功能等
-![a](images/Screenshot_2017-04-25-18-57-45-088_Indoor.png)
+
+![](images/Screenshot_2017-04-25-18-57-45-088_Indoor.png =100x100)
