@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -147,8 +148,8 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
     Context context;
     BmobIMConversation c;
     Toast toast;
-    // 拍照后得到的图片地址
-    private String localCameraPath = "";
+    private String sdPath;//SD卡的路径
+    private String picPath;//图片存储路径
     private Drawable[] drawable_Anims;// 话筒动画
 
     @Override
@@ -484,15 +485,13 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
      * 发送本地照相机图片地址
      */
     public void sendLocalCameraMessage() {
+        //获取SD卡的路径
+        sdPath = Environment.getExternalStorageDirectory().getPath();
+        picPath = sdPath + "/" + System.currentTimeMillis() + ".png";
         Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        File dir = new File("indoor");
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-        File file = new File(dir, String.valueOf(System.currentTimeMillis()) + ".jpg");
-        localCameraPath = file.getPath();
-        Uri imageUri = Uri.fromFile(file);
-        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        Uri uri = Uri.fromFile(new File(picPath));
+        //为拍摄的图片指定一个存储的路径
+        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         startActivityForResult(openCameraIntent, 1);
     }
 
@@ -515,7 +514,7 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case 1:// 当取到值的时候才上传path路径下的图片到服务器
-                    BmobIMImageMessage image = new BmobIMImageMessage(localCameraPath);
+                    BmobIMImageMessage image = new BmobIMImageMessage(picPath);
                     c.sendMessage(image, listener);
                     break;
                 case 2:
