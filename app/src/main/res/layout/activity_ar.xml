@@ -6,4 +6,8 @@
 
     <include layout="@layout/include_navi" />
 
+    <com.amap.api.navi.AMapHudView
+        android:id="@+id/hudview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

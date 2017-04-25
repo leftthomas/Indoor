@@ -109,7 +109,7 @@ public class LivingSurroundingsActivity extends ParentWithNaviActivity {
     @OnClick(R.id.book)
     public void onBookClick(View view) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable("poi", "科教文化");
+        bundle.putSerializable("poi", "科教文化服务");
         startActivity(ArActivity.class, bundle);
     }
 
