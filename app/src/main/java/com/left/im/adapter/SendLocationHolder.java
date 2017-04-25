@@ -1,6 +1,7 @@
 package com.left.im.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.left.im.R;
 import com.left.im.adapter.base.BaseViewHolder;
 import com.left.im.base.ImageLoaderFactory;
+import com.left.im.ui.MapActivity;
 
 import java.text.SimpleDateFormat;
 
@@ -21,10 +23,11 @@ import cn.bmob.newim.bean.BmobIMMessage;
 import cn.bmob.newim.bean.BmobIMSendStatus;
 import cn.bmob.newim.bean.BmobIMUserInfo;
 import cn.bmob.newim.listener.MessageSendListener;
+import cn.bmob.v3.datatype.BmobGeoPoint;
 import cn.bmob.v3.exception.BmobException;
 
 /**
- * 发送的语音类型
+ * 发送的地理类型
  */
 public class SendLocationHolder extends BaseViewHolder {
 
@@ -88,7 +91,9 @@ public class SendLocationHolder extends BaseViewHolder {
         tv_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                toast("经度：" + message.getLongitude() + ",维度：" + message.getLatitude());
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("location", new BmobGeoPoint(message.getLongitude(), message.getLatitude()));
+                startActivity(MapActivity.class, bundle);
                 if (onRecyclerViewListener != null) {
                     onRecyclerViewListener.onItemClick(getAdapterPosition());
                 }

@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.left.im.BmobIMApplication;
 import com.left.im.R;
 import com.left.im.adapter.ChatAdapter;
 import com.left.im.adapter.OnRecyclerViewListener;
@@ -394,9 +395,9 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
 
     @OnClick(R.id.tv_picture)
     public void onPictureClick(View view) {
-//        sendLocalImageMessage();
+        sendLocalImageMessage();
 //        sendOtherMessage();
-        sendVideoMessage();
+//        sendVideoMessage();
     }
 
     @OnClick(R.id.tv_camera)
@@ -514,10 +515,13 @@ public class ChatActivity extends ParentWithNaviActivity implements ObseverListe
      * 发送地理位置
      */
     public void sendLocationMessage() {
-        //测试数据，真实数据需要从地图SDK中获取
-        BmobIMLocationMessage location = new BmobIMLocationMessage("广州番禺区", 23.5, 112.0);
+        //真实数据需要从高德地图SDK中获取
+        BmobIMLocationMessage location = new BmobIMLocationMessage(BmobIMApplication
+                .getCurrent_user_location().getCity() + BmobIMApplication.getCurrent_user_location()
+                .getDistrict(), BmobIMApplication.getCurrent_user_location().getLatitude(),
+                BmobIMApplication.getCurrent_user_location().getLongitude());
         Map<String, Object> map = new HashMap<>();
-        map.put("from", "百度地图");
+        map.put("from", "高德地图");
         location.setExtraMap(map);
         c.sendMessage(location, listener);
     }

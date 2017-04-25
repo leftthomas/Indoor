@@ -10,25 +10,20 @@ import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.MarkerOptions;
-import com.left.im.BmobIMApplication;
 import com.left.im.R;
 import com.left.im.base.ParentWithNaviActivity;
-import com.left.im.bean.Friend;
-import com.left.im.model.UserModel;
-
-import java.util.List;
 
 import butterknife.Bind;
-import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.datatype.BmobGeoPoint;
 
 /**
- * 朋友分布
+ * 地图页
  *
  * @author :left
  * @project:BlackListActivity
  * @date :2017-04-25-18:23
  */
-public class FriendDistributionActivity extends ParentWithNaviActivity {
+public class MapActivity extends ParentWithNaviActivity {
 
     @Bind(R.id.map)
     MapView mMapView = null;
@@ -37,7 +32,7 @@ public class FriendDistributionActivity extends ParentWithNaviActivity {
 
     @Override
     protected String title() {
-        return "朋友分布";
+        return "地图详情";
     }
 
     @Override
@@ -45,35 +40,16 @@ public class FriendDistributionActivity extends ParentWithNaviActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_distribution);
         initNaviView();
+        BmobGeoPoint location = (BmobGeoPoint) getBundle().getSerializable("location");
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
         mMapView.onCreate(savedInstanceState);
         //初始化地图控制器对象
         aMap = mMapView.getMap();
-        UserModel.getInstance().queryFriends(new FindListener<Friend>() {
-            @Override
-            public void onSuccess(List<Friend> list) {
-                for (Friend friend : list) {
-                    LatLng latLng = new LatLng(friend.getFriendUser().getLocation().getLatitude(),
-                            friend.getFriendUser().getLocation().getLongitude());
-                    aMap.addMarker(new MarkerOptions().position(latLng).title(friend.getFriendUser()
-                            .getUsername()).snippet(friend.getFriendUser().getSex()));
-                }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-                log(s);
-            }
-        });
         // 设置当前地图显示为当前位置
-        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(BmobIMApplication
-                .getCurrent_user_location().getLatitude(), BmobIMApplication
-                .getCurrent_user_location().getLongitude()), 16));
+        aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16));
         BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(BitmapFactory
                 .decodeResource(getResources(), R.mipmap.location_marker));
-        aMap.addMarker(new MarkerOptions().position(new LatLng(BmobIMApplication
-                .getCurrent_user_location().getLatitude(), BmobIMApplication
-                .getCurrent_user_location().getLongitude())).icon(bitmapDescriptor));
+        aMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).icon(bitmapDescriptor));
     }
 
 

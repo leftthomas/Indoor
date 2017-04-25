@@ -80,7 +80,7 @@ public class MainActivity extends BaseActivity implements ObseverListener {
     //声明定位回调监听器
     public AMapLocationListener mLocationListener = new AMapLocationListener() {
         @Override
-        public void onLocationChanged(AMapLocation aMapLocation) {
+        public void onLocationChanged(final AMapLocation aMapLocation) {
             if (aMapLocation != null) {
                 if (aMapLocation.getErrorCode() == 0) {
                     final User newUser = new User();
@@ -89,7 +89,7 @@ public class MainActivity extends BaseActivity implements ObseverListener {
                         @Override
                         public void onSuccess() {
                             //记得更新下当前用户的地理位置信息，用来后续做比较
-                            BmobIMApplication.setCurrent_user_location(newUser.getLocation());
+                            BmobIMApplication.setCurrent_user_location(aMapLocation);
                         }
 
                         @Override

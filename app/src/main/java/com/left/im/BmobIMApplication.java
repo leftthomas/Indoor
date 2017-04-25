@@ -2,6 +2,7 @@ package com.left.im;
 
 import android.app.Application;
 
+import com.amap.api.location.AMapLocation;
 import com.left.im.base.UniversalImageLoader;
 import com.orhanobut.logger.Logger;
 
@@ -10,7 +11,6 @@ import java.io.File;
 import java.io.FileReader;
 
 import cn.bmob.newim.BmobIM;
-import cn.bmob.v3.datatype.BmobGeoPoint;
 
 /**
  * @author :smile
@@ -21,17 +21,17 @@ public class BmobIMApplication extends Application {
 
 
     private static BmobIMApplication INSTANCE;
-    private static BmobGeoPoint current_user_location;
+    private static AMapLocation current_user_location;
 
     public static BmobIMApplication INSTANCE() {
         return INSTANCE;
     }
 
-    public static BmobGeoPoint getCurrent_user_location() {
+    public static AMapLocation getCurrent_user_location() {
         return current_user_location;
     }
 
-    public static void setCurrent_user_location(BmobGeoPoint current_user_location) {
+    public static void setCurrent_user_location(AMapLocation current_user_location) {
         BmobIMApplication.current_user_location = current_user_location;
     }
 

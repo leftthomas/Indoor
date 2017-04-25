@@ -11,6 +11,8 @@ import com.left.im.bean.User;
 
 import java.util.Collection;
 
+import cn.bmob.v3.datatype.BmobGeoPoint;
+
 /**
  * 附近的人
  *
@@ -30,8 +32,9 @@ public class NearbyAdapter extends BaseRecyclerAdapter<User> {
         holder.setText(R.id.tv_name, user.getUsername());
         holder.setText(R.id.tv_time, user.getUpdatedAt());
         holder.setText(R.id.tv_distance, (user.getLocation() == null || BmobIMApplication.getCurrent_user_location()
-                == null) ? "未知" : (int) (user.getLocation().distanceInMilesTo(
-                BmobIMApplication.getCurrent_user_location())) + "米");
+                == null) ? "未知" : (int) (user.getLocation().distanceInMilesTo(new BmobGeoPoint(
+                BmobIMApplication.getCurrent_user_location().getLongitude(),
+                BmobIMApplication.getCurrent_user_location().getLatitude()))) + "米");
     }
 
 }
