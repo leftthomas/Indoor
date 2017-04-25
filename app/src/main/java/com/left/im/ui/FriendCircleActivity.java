@@ -156,42 +156,39 @@ public class FriendCircleActivity extends ParentWithNaviActivity {
      * 查询动态
      */
     public void query() {
-        final ArrayList<User> friends = new ArrayList<>();
-        UserModel.getInstance().queryFriends(new FindListener<Friend>() {
-            @Override
-            public void onSuccess(List<Friend> list) {
-                for (Friend friend : list) {
-                    friends.add(friend.getFriendUser());
-                }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-                log(s);
-            }
-        });
-        BmobQuery<Blog> query1 = new BmobQuery<Blog>();
-        query1.addWhereContainedIn("author", friends);
-        BmobQuery<Blog> query2 = new BmobQuery<Blog>();
-        // 查询当前用户的所有帖子
-        query2.addWhereEqualTo("author", user);
-        //最后组装完整的条件
-        List<BmobQuery<Blog>> orQuerys = new ArrayList<BmobQuery<Blog>>();
-        orQuerys.add(query1);
-        orQuerys.add(query2);
-        //查询符合整个条件的人
+        //由于Bmob对模糊查询收费的问题，所以只能用全部查询再做判断了
         BmobQuery<Blog> query = new BmobQuery<Blog>();
-        query.or(orQuerys);
         query.order("-updatedAt");
         // 希望在查询帖子信息的同时也把发布人的信息查询出来
         query.include("author");
-//        query.setLimit(50);
+        query.setLimit(50);
         query.findObjects(this, new FindListener<Blog>() {
             @Override
-            public void onSuccess(List<Blog> list) {
-                adapter.bindDatas(list);
-                adapter.notifyDataSetChanged();
-                sw_refresh.setRefreshing(false);
+            public void onSuccess(final List<Blog> list) {
+                UserModel.getInstance().queryFriends(new FindListener<Friend>() {
+                    @Override
+                    public void onSuccess(List<Friend> friends) {
+                        ArrayList<Blog> result = new ArrayList<Blog>();
+                        for (Blog blog : list) {
+                            for (Friend f : friends) {
+                                //判断是否发帖者为当前用户或者是好友
+                                if (blog.getAuthor().getObjectId().equals(f.getFriendUser().getObjectId()) || blog.getAuthor().getObjectId().equals(user.getObjectId())) {
+                                    if (!result.contains(blog))
+                                        result.add(blog);
+
+                                }
+                            }
+                        }
+                        adapter.bindDatas(result);
+                        adapter.notifyDataSetChanged();
+                        sw_refresh.setRefreshing(false);
+                    }
+
+                    @Override
+                    public void onError(int i, String s) {
+                        log(s);
+                    }
+                });
             }
 
             @Override
