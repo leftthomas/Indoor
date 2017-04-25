@@ -52,7 +52,7 @@ public class ReceiveLocationHolder extends BaseViewHolder {
         tv_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("经度：" + message.getLongitude() + ",维度：" + message.getLatitude());
+//                toast("经度：" + message.getLongitude() + ",维度：" + message.getLatitude());
                 if (onRecyclerViewListener != null) {
                     onRecyclerViewListener.onItemClick(getAdapterPosition());
                 }
@@ -71,7 +71,7 @@ public class ReceiveLocationHolder extends BaseViewHolder {
         iv_avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("点击" + info.getName() + "头像");
+//                toast("点击" + info.getName() + "头像");
             }
         });
     }

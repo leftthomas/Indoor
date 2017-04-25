@@ -64,7 +64,7 @@ public class ReceiveVoiceHolder extends BaseViewHolder {
         iv_avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("点击" + info.getName() + "的头像");
+//                toast("点击" + info.getName() + "的头像");
             }
         });
         //显示特有属性

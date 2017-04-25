@@ -113,12 +113,12 @@ public class UserModel extends BaseModel {
         user.signUp(getContext(), new SaveListener() {
             @Override
             public void onSuccess() {
-                listener.done(null, null);
+                listener.done(user, null);
             }
 
             @Override
             public void onFailure(int i, String s) {
-                listener.done(null, new BmobException(i, s));
+                listener.done(user, new BmobException(i, s));
             }
         });
     }

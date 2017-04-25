@@ -205,7 +205,7 @@ public class NearbyPeopleActivity extends ParentWithNaviActivity {
 
                         @Override
                         public void onError(int i, String s) {
-                            adapter.bindDatas(null);
+                            adapter.bindDatas(list);
                             adapter.notifyDataSetChanged();
                             sw_refresh.setRefreshing(false);
                             log(s);

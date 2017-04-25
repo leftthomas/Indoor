@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.left.im.bean.AddFriendMessage;
 import com.left.im.bean.AgreeAddFriendMessage;
+import com.left.im.bean.Friend;
 import com.left.im.bean.User;
 import com.left.im.db.NewFriend;
 import com.left.im.db.NewFriendManager;
@@ -20,6 +21,7 @@ import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +33,7 @@ import cn.bmob.newim.event.OfflineMessageEvent;
 import cn.bmob.newim.listener.BmobIMMessageHandler;
 import cn.bmob.newim.notification.BmobNotificationManager;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
 /**
@@ -124,9 +127,25 @@ public class MessageHandler extends BmobIMMessageHandler {
                 showAddNotify(friend);
             }
         } else if (type.equals("agree")) {//接收到的对方同意添加自己为好友,此时需要做的事情：1、添加对方为好友，2、显示通知
-            AgreeAddFriendMessage agree = AgreeAddFriendMessage.convert(msg);
-            addFriend(agree.getFromId());//添加消息的发送方为好友
-            //这里应该也需要做下校验--来检测下是否已经同意过该好友请求，我这里省略了
+            final AgreeAddFriendMessage agree = AgreeAddFriendMessage.convert(msg);
+            //添加消息的发送方为好友
+            //这里应该需要做下校验--来检测下是否已经同意过该好友请求
+            UserModel.getInstance().queryFriends(new FindListener<Friend>() {
+                @Override
+                public void onSuccess(List<Friend> list) {
+                    ArrayList<String> obj_list = new ArrayList<String>();
+                    for (Friend friend : list) {
+                        obj_list.add(friend.getFriendUser().getObjectId());
+                    }
+                    if (!obj_list.contains(agree.getFromId()))
+                        addFriend(agree.getFromId());
+                }
+
+                @Override
+                public void onError(int i, String s) {
+                    Log.i("bmob", s);
+                }
+            });
             showAgreeNotify(info, agree);
         } else {
             Toast.makeText(context, "接收到的自定义消息：" + msg.getMsgType() + "," + msg.getContent() + "," + msg.getExtra(), Toast.LENGTH_SHORT).show();

@@ -22,7 +22,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 
 /**
- * 登陆界面
+ * 登录界面
  *
  * @author :smile
  * @project:LoginActivity

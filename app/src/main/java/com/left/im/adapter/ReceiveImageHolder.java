@@ -80,14 +80,14 @@ public class ReceiveImageHolder extends BaseViewHolder {
         iv_avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("点击" + info.getName() + "的头像");
+//                toast("点击" + info.getName() + "的头像");
             }
         });
 
         iv_picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("点击图片:" + message.getRemoteUrl() + "");
+//                toast("点击图片:" + message.getRemoteUrl() + "");
                 if (onRecyclerViewListener != null) {
                     onRecyclerViewListener.onItemClick(getAdapterPosition());
                 }

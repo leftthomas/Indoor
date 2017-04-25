@@ -175,7 +175,6 @@ public class FriendCircleActivity extends ParentWithNaviActivity {
                                 if (blog.getAuthor().getObjectId().equals(f.getFriendUser().getObjectId()) || blog.getAuthor().getObjectId().equals(user.getObjectId())) {
                                     if (!result.contains(blog))
                                         result.add(blog);
-
                                 }
                             }
                         }
@@ -186,6 +185,14 @@ public class FriendCircleActivity extends ParentWithNaviActivity {
 
                     @Override
                     public void onError(int i, String s) {
+                        ArrayList<Blog> result = new ArrayList<Blog>();
+                        for (Blog blog : list) {
+                            if (blog.getAuthor().getObjectId().equals(user.getObjectId()))
+                                result.add(blog);
+                        }
+                        adapter.bindDatas(result);
+                        adapter.notifyDataSetChanged();
+                        sw_refresh.setRefreshing(false);
                         log(s);
                     }
                 });

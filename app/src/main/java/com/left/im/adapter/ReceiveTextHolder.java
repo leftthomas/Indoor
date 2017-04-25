@@ -53,13 +53,13 @@ public class ReceiveTextHolder extends BaseViewHolder {
         iv_avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("点击" + info.getName() + "的头像");
+//                toast("点击" + info.getName() + "的头像");
             }
         });
         tv_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toast("点击" + message.getContent());
+//                toast("点击" + message.getContent());
                 if (onRecyclerViewListener != null) {
                     onRecyclerViewListener.onItemClick(getAdapterPosition());
                 }
