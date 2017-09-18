@@ -40,7 +40,7 @@
      <img width="216" height="384" src="images/Screenshot_2017-04-25-18-57-45-088_Indoor.png"/>
     </td>
     <td style="vertical-align:bottom; text-align:center;">
-     <img width="216" height="384" src="images/Screenshot_2017-04-25-18-58-21-021_Indoor.png"/>
+     <img width="216" height="384" src="images/Screenshot_2017-04-25-18-58-06-594_Indoor.png"/>
     </td>
     <td style="vertical-align:bottom; text-align:center;">
      <img width="216" height="384" src="images/Screenshot_2017-04-25-18-58-26-916_Indoor.png"/>
@@ -51,7 +51,7 @@
   </tr>
   <tr>
     <td style="vertical-align:bottom; text-align:center;">
-     <img width="216" height="384" src="images/Screenshot_2017-04-25-18-58-06-594_Indoor.png"/>
+     <img width="216" height="384" src="images/Screenshot_2017-04-25-18-58-21-021_Indoor.png"/>
     </td>
     <td style="vertical-align:bottom; text-align:center;">
      <img width="216" height="384" src="images/Screenshot_2017-04-25-18-59-26-481_Indoor.png"/>
