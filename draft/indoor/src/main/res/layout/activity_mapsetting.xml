@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+   		android:layout_height="45dp">
+    
+      <ImageView 
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/hello_world"/>
+         
+        <TextView 
+           android:layout_centerInParent="true"
+           android:id="@+id/biaoti"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/mapsetting"
+           android:textSize="18sp"/>   
+       
+    </RelativeLayout>
+    
+    <View 
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    
+      <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/satellitemap"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/satellitemap"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/satellitemap"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/opensatellite"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    	
+    	 <Switch
+            android:id="@+id/satellitemapstatus"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+     
+     <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/trafficmap"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/trafficmap"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/trafficmap"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/opentraffic"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    	
+    	 <Switch
+            android:id="@+id/trafficmapstatus"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+      
+     <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/cityheatmap"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/cityheatmap"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/cityheatmap"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/openheat"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    	
+    	 <Switch
+            android:id="@+id/heatmapstatus"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+     
+      <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/voicenavigation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/voicenavigation"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/voicenavigation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/voice_navigation"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    	
+    	 <Switch
+            android:id="@+id/voice_navigationstatus"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+</LinearLayout>
+

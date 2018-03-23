@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView 
+    xmlns:android="http://schemas.android.com/apk/res/android"  
+    xmlns:app="http://schemas.android.com/apk/res-auto"  
+    android:id="@+id/cardview"  
+    app:cardCornerRadius="8dp"  
+    app:cardBackgroundColor="#FFFFFF"  
+    android:layout_margin="8dp"  
+    android:layout_height="wrap_content"  
+    android:layout_width="match_parent">  
+    
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     app:cardBackgroundColor="#FFFFFF"  
+    android:padding="10dp"
+    android:orientation="vertical" >
+	
+    <ImageView 
+        android:id="@+id/tv_photo"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:contentDescription="@string/hello_world"
+        android:layout_alignParentLeft="true"/>
+    <TextView
+        android:layout_toRightOf="@id/tv_photo"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        style="@style/Smile.TextView._Black" 
+        android:text=""
+        android:singleLine="true">
+    </TextView>
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/tv_photo"
+        android:id="@+id/tv_describe"
+        android:layout_marginTop="10dp"
+        android:text=""
+        style="@style/Smile.TextView._Gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title" 
+        android:minLines="1"
+        android:maxLines="2"
+        android:textSize="16sp" >
+    </TextView>
+    
+</RelativeLayout>
+</android.support.v7.widget.CardView>  

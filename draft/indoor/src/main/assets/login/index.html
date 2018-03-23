@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/supersized.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script>
+function  submituser(){
+	var t=document.getElementById("user").value;
+	window.UserData.getUsername(t);
+	t=document.getElementById("pass").value;
+	window.UserData.getPassword(t);
+    window.UserData.save();
+}
+</script>
+<style type="text/css">
+body{font-family:"Microsoft Yahei";}
+</style>
+    </head>
+
+    <body>
+
+        <div class="page-container">
+            <h1>登录</h1>
+            <form action="" method="post">
+                <input type="text" name="username" class="username" placeholder="用户名" id="user">
+                <input type="password" name="password" class="password" placeholder="密码" id="pass">
+                <button type="submit" onClick="submituser()" >登录</button>
+                <div class="error"><span>+</span></div>
+            </form>
+            <div style="margin-top: 15px; "><a onclick="window.UserData.toregister()">新用户注册</a></div>
+            <div class="connect">
+                <p>第三方登录:</p>
+                <p>
+                   
+                    <a class="facebook" href=""></a>
+                    <a class="twitter" href=""></a>
+                </p>
+            </div>
+        </div>
+		
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/js/supersized.3.2.7.min.js"></script>
+        <script src="assets/js/supersized-init.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+
+</html>
+
+

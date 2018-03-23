@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.left.indoor.map"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <!-- 允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- BmobPush SDK权限 -->
+    <permission
+        android:name="cn.bmob.permission.push"
+        android:protectionLevel="normal" >
+    </permission>
+
+    <uses-permission android:name="cn.bmob.permission.push" />
+    <!-- 添加自定义的权限 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+
+    <application
+        android:name="com.left.indoor.utils.MyApplication"
+        android:allowBackup="true"
+        android:hasCode="true"
+        android:icon="@drawable/ic_launcher2"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        <activity
+            android:name="com.left.indoor.guide.LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.left.indoor.guide.GuideActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.chat.ContactActivity"
+            android:label="@string/title_activity_contact" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.situation.SituationActivity"
+            android:label="@string/title_activity_situation" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.personal.PersonalActivity"
+            android:label="@string/title_activity_personal" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.guide.MainActivity"
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="nr6OUbLAmffqrrSIdVj2tpm6" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <activity
+            android:name="com.left.indoor.setting.MapsettingActivity"
+            android:label="@string/title_activity_mapsetting" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.SettingActivity"
+            android:label="@string/title_activity_setting" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.guide.RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.AboutusActivity"
+            android:label="@string/title_activity_aboutus" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.PrivacysettingActivity"
+            android:label="@string/title_activity_privacysetting" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.ClearchatActivity"
+            android:label="@string/title_activity_clearchat" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.ClearcacheActivity"
+            android:label="@string/title_activity_clearcache" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.SituationsettingActivity"
+            android:label="@string/title_activity_situationsetting" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.WallpapersettingActivity"
+            android:label="@string/title_activity_wallpapersetting" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.FeedbackActivity"
+            android:label="@string/title_activity_feedback" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.setting.PersonalsettingActivity"
+            android:label="@string/title_activity_personalsetting" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.release.ReleaseActivity"
+            android:label="@string/title_activity_release" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.guide.ImprovepersonaldataActivity"
+            android:label="@string/title_activity_improvepersonaldata" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.guide.SetsculptureActivity"
+            android:label="@string/title_activity_setsculpture" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.personal.Choosesculpture"
+            android:label="@string/title_activity_setsculpture" >
+        </activity>
+
+        <service
+            android:name="cn.bmob.push.lib.service.PushService"
+            android:exported="true"
+            android:label="PushService"
+            android:permission="cn.bmob.permission.push"
+            android:process="cn.bmob.push" >
+            <intent-filter>
+                <action android:name="cn.bmob.push.lib.service.PushService" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="cn.bmob.push.PushReceiver" >
+            <intent-filter android:priority="2147483647" >
+
+                <!-- 优先级加最高 -->
+                <!-- 系统启动完成后会调用 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- 解锁完成后会调用 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!-- 监听网络连通性 -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.left.indoor.media.AddActivity"
+            android:label="@string/hello_world" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.shopping.Goods_detailActivity"
+            android:label="@string/title_activity_goods_detail" >
+        </activity>
+        <activity
+            android:name="com.left.indoor.chat.ChatActivity"
+            android:label="@string/title_activity_chat" >
+        </activity>
+
+        <receiver android:name=".AddFriendPushMessageReceiver" >
+            <intent-filter>
+                <action android:name="cn.bmob.push.action.MESSAGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.left.indoor.chat.AddFriendsActivity"
+            android:label="@string/title_activity_add_friends" >
+        </activity>
+    </application>
+
+</manifest>

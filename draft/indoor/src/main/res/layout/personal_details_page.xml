@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <FrameLayout 
+    android:id="@+id/personal_framelayout"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp"
+    android:background="#4EE4E4">
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nickname"
+        android:textColor="@android:color/holo_purple"
+        android:layout_gravity="top|center_horizontal" 
+        android:textSize="24sp" />
+    <TextView 
+        android:id="@+id/relation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relation"
+        android:layout_marginRight="10dp" 
+        android:layout_marginTop="60dp" 
+        android:textColor="@android:color/holo_purple"
+        android:layout_gravity="right" 
+        android:textSize="14sp" /> 
+   <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/age"   
+        android:layout_marginRight="10dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="90dp" 
+        android:textColor="@android:color/holo_purple"
+        android:textSize="14sp" />
+   <TextView
+        android:id="@+id/profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/profession"   
+        android:layout_marginRight="10dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="120dp" 
+        android:textColor="@android:color/holo_purple"
+        android:textSize="14sp" />
+
+    <com.left.indoor.myview.RoundImageView
+        android:id="@+id/userphoto"
+        android:layout_width="110dp"
+        android:layout_height="110dp" 
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="bottom" 
+        android:src="@drawable/user" />
+    </FrameLayout>
+      <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <ImageView
+            android:id="@+id/locateicon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@string/hello_world"
+            android:src="@drawable/location" />
+
+        <TextView 
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/locateicon"
+            android:gravity="center_vertical|left"
+            android:text="@string/position"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+    
+       <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <ImageView
+            android:id="@+id/mailicon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@string/hello_world"
+            android:src="@drawable/mail" />
+
+        <TextView 
+            android:id="@+id/mail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/mailicon"
+            android:gravity="center_vertical|left"
+            android:text="@string/email"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+</LinearLayout>
+

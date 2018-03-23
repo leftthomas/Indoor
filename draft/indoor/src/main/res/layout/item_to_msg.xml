@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/id_to_msg_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#bebebe"
+        android:text="@string/hello_world"
+        android:textColor="#f5f5f5"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+         <com.left.indoor.myview.RoundImageView
+             android:id="@+id/user_to_photo"
+             android:contentDescription="@string/hello_world"
+             android:layout_width="49dp"
+             android:layout_height="49dp"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="10dp"
+             android:src="@drawable/user" />
+
+         <TextView
+             android:id="@+id/id_to_msg_info"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_toLeftOf="@+id/user_to_photo"
+             android:background="@drawable/chatto_bg_focused"
+             android:gravity="center_vertical"
+             android:text="@string/hello_world"
+             android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

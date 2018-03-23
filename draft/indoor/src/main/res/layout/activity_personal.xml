@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="44dp">
+
+        <TextView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/personal"
+            android:textSize="18sp" />    
+           
+        <ImageView 
+            android:id="@+id/setting"
+            android:contentDescription="@string/hello_world"
+            android:layout_width="42dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/setting"/>
+       </RelativeLayout>
+       
+    <LinearLayout
+        android:baselineAligned="false"
+        android:layout_width="fill_parent"
+        android:layout_height="37dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/id_shownewsmedia"
+            android:layout_width="3dp"
+            android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@android:color/holo_blue_bright"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/newsmedia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newsmedia"
+                android:textColor="@android:color/holo_green_dark" />
+        </LinearLayout>
+
+        <LinearLayout 
+            android:id="@+id/id_showpersonal_information"
+            android:layout_width="3dp"
+            android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/personal_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/personal_information" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/id_showOnline_shopping"
+            android:layout_width="3dp"
+            android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@android:color/holo_green_light"
+            android:gravity="center" >
+
+            <TextView 
+                android:id="@+id/Online_shopping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/Online_shopping" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/personalviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

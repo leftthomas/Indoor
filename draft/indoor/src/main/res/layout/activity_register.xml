@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registerback"
+    tools:context="${relativePackage}.${activityClass}" >
+
+     <TextView
+        android:id="@+id/registerappname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="@string/app_name"
+        android:textColor="#0A81D6"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/registerusernameflag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="142dp"
+        android:text="@string/usernameflag" 
+        android:textColor="#0A81D6"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/registerusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/registerusernameflag"
+        android:layout_alignBottom="@+id/registerusernameflag"
+        android:layout_toRightOf="@+id/registerusernameflag"
+        android:hint="@string/loginhintuser"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/registerpasswordflag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registerusernameflag"
+        android:layout_below="@+id/registerusername"
+        android:layout_marginTop="46dp"
+        android:text="@string/passwordflag" 
+        android:textColor="#0A81D6"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/registerpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/registerpasswordflag"
+        android:layout_alignBottom="@+id/registerpasswordflag"
+        android:layout_toRightOf="@+id/registerusernameflag"
+        android:ems="10" 
+        android:hint="@string/loginhintpassword"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/registerbutton"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="78dp"
+        android:background="#A43D9D"
+        android:text="@string/register" />
+    
+    <TextView
+        android:id="@+id/confirmpasswordflag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/registerpasswordflag"
+        android:layout_below="@+id/registerpassword"
+        android:layout_marginTop="35dp"
+        android:text="@string/confirmpassword" 
+        android:textColor="#0A81D6"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/confirmpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/confirmpasswordflag"
+        android:layout_alignBottom="@+id/confirmpasswordflag"
+        android:layout_toRightOf="@+id/registerusernameflag"
+        android:ems="10"
+        android:hint="@string/confirmpasswordagain"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/emailflag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/confirmpasswordflag"
+        android:layout_below="@+id/confirmpassword"
+        android:layout_marginTop="29dp"
+        android:text="@string/email" 
+        android:textColor="#0A81D6"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/emailflag"
+        android:layout_alignBottom="@+id/emailflag"
+        android:layout_alignLeft="@+id/confirmpassword"
+        android:ems="10"
+        android:hint="@string/emailhint"
+        android:inputType="textEmailAddress" />
+
+</RelativeLayout>

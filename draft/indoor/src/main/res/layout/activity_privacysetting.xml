@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff" >
+    
+    <RelativeLayout 
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+   		android:layout_height="45dp">
+    
+      <ImageView 
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/hello_world"/>
+         
+        <TextView 
+           android:layout_centerInParent="true"
+           android:id="@+id/biaoti"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/privacy_settings"
+           android:textSize="18sp"/>   
+       
+    </RelativeLayout>
+      <View 
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     <ScrollView
+  android:layout_width="fill_parent" 
+  android:layout_height="fill_parent">
+    <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">    
+    
+    <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/sex"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/sex"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/sex"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/sex"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+    <RadioGroup
+        android:id="@+id/sexoption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+       		  <RadioButton 
+       		      android:id="@+id/sexsecret"
+          		  android:layout_width="wrap_content"
+          		  android:layout_height="wrap_content"
+          		  android:textSize="12sp"
+          		  android:text="@string/secret"/>
+         	 <RadioButton
+         	     android:id="@+id/sexonly_friends"
+          		android:layout_width="wrap_content"
+          		android:layout_height="wrap_content"
+          		android:textSize="12sp"
+           		android:text="@string/only_friends"/>
+          	<RadioButton
+          	     android:id="@+id/sexallvisible"
+           			android:layout_width="wrap_content"
+           			android:layout_height="wrap_content"
+           			android:textSize="12sp"
+           			android:text="@string/allvisible"/>
+		 </RadioGroup>
+    
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/age"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/age"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/age"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/age"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+    <RadioGroup 
+        android:id="@+id/ageoption"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+       		android:orientation="horizontal">
+        
+       		 <RadioButton
+       		     android:id="@+id/agesecret"
+          		  android:layout_width="wrap_content"
+          		  android:layout_height="wrap_content"
+          		  android:textSize="12sp"
+          		  android:text="@string/secret"/>
+         	 <RadioButton
+         	      android:id="@+id/ageonly_friends"
+          		android:layout_width="wrap_content"
+          		android:layout_height="wrap_content"
+          		android:textSize="12sp"
+           		android:text="@string/only_friends"/>
+          	<RadioButton
+          	     android:id="@+id/ageallvisible"
+           			android:layout_width="wrap_content"
+           			android:layout_height="wrap_content"
+           			android:textSize="12sp"
+           			android:text="@string/allvisible"/>
+		 </RadioGroup>
+    
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    
+  
+    <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/position"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/position"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/position"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/position"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+    <RadioGroup
+        android:id="@+id/positionoption"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+       		android:orientation="horizontal">
+        
+       	   <RadioButton 
+       	        android:id="@+id/positionsecret"
+          		  android:layout_width="wrap_content"
+          		  android:layout_height="wrap_content"
+          		  android:textSize="12sp"
+          		  android:text="@string/secret"/>
+         	 <RadioButton
+         	       android:id="@+id/positiononly_friends"
+          		android:layout_width="wrap_content"
+          		android:layout_height="wrap_content"
+          		android:textSize="12sp"
+           		android:text="@string/only_friends"/>
+          	<RadioButton
+          	      android:id="@+id/positionallvisible"
+           			android:layout_width="wrap_content"
+           			android:layout_height="wrap_content"
+           			android:textSize="12sp"
+           			android:text="@string/allvisible"/>
+		 </RadioGroup>
+    
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+ 
+      <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/profession"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/profession"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world" />
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/profession"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/profession"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+    <RadioGroup
+          android:id="@+id/professionoption"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+       		android:orientation="horizontal">
+        
+       		  <RadioButton  
+       		      android:id="@+id/professionsecret"
+          		  android:layout_width="wrap_content"
+          		  android:layout_height="wrap_content"
+          		  android:textSize="12sp"
+          		  android:text="@string/secret"/>
+         	 <RadioButton 
+         	      android:id="@+id/professiononly_friends"
+          		android:layout_width="wrap_content"
+          		android:layout_height="wrap_content"
+          		android:textSize="12sp"
+           		android:text="@string/only_friends"/>
+          	<RadioButton
+          	      android:id="@+id/professionallvisible"
+           			android:layout_width="wrap_content"
+           			android:layout_height="wrap_content"
+           			android:textSize="12sp"
+           			android:text="@string/allvisible"/>
+		 </RadioGroup>
+    
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    </LinearLayout>
+   
+    </ScrollView>
+   
+</LinearLayout>
+

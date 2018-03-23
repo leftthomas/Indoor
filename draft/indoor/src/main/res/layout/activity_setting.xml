@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff" >
+    
+    <RelativeLayout 
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+   		android:layout_height="45dp">
+    
+      <ImageView 
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/hello_world"/>
+         
+        <TextView 
+           android:layout_centerInParent="true"
+           android:id="@+id/biaoti"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/accountsettings"
+           android:textSize="18sp"/>   
+       
+    </RelativeLayout>
+      <View 
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     <ScrollView
+  android:layout_width="fill_parent" 
+  android:layout_height="fill_parent">
+    <LinearLayout 
+       
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+      
+    <RelativeLayout  
+        android:id="@+id/contactrelation_layout"
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/contactrelation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/contactrelation"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/contactrelation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/contactrelationship"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+      
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+         <RelativeLayout  
+             android:id="@+id/personalprofile_layout"
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/personalprofile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/personalprofile"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/personalprofile"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/personal_data"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+      
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+ 
+      <RelativeLayout  
+           android:id="@+id/privacysetting_layout"
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/privacysetting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/privacysetting"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/privacysetting"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/privacy_settings"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+     
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+        <RelativeLayout  
+             android:id="@+id/situationsetting_layout"
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/situationsetting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/situationsetting"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/situationsetting"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/situationsetting"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+   
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+   <RelativeLayout  
+        android:id="@+id/mapsetting_layout"
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/mapsetting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/mapsetting"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/mapsetting"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/mapsetting"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+      
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>   
+     
+       <RelativeLayout  
+        android:id="@+id/purchaserecords_layout"
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/purchaserecords"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/purchaserecords"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/purchaserecords"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/purchases"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+      
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <RelativeLayout 
+        android:id="@+id/wallpapersetting_layout" 
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/wallpapersetting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/wallpapersetting"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/wallpapersetting"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/wallpapersetting"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+     
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+   <RelativeLayout  
+        android:id="@+id/feedback_layout" 
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/feedback"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/feedback"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/feedback"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+ 
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+     
+    <RelativeLayout  
+        android:id="@+id/aboutus_layout"
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/aboutus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/aboutus"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/aboutus"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/about"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+     
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+    <RelativeLayout  
+        android:id="@+id/lingdang_layout" 
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/clearcache"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/clear"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/clearcache"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/chatwithlingdang"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+    
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+ 
+       <RelativeLayout  
+        android:id="@+id/clearchat_layout" 
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/clearchat"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/clear"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/clearchat"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/clearchat"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
+       <RelativeLayout  
+        android:id="@+id/logout_layout" 
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/logout"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/logout"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/logout"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    </RelativeLayout>
+   
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+    </LinearLayout>
+  </ScrollView>
+   
+</LinearLayout>
+

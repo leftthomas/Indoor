@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+   		android:layout_height="45dp">
+    
+      <ImageView 
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/hello_world"/>
+         
+        <TextView 
+           android:layout_centerInParent="true"
+           android:id="@+id/biaoti"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/personalsetting"
+           android:textSize="18sp"/>   
+       
+    </RelativeLayout>
+    
+    <View 
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+  
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="160dp">
+        
+        <com.left.indoor.myview.RoundImageView
+            android:id="@+id/headsculpture"
+            android:layout_centerInParent="true" 
+            android:layout_width="150dp" 
+            android:layout_height="150dp" 
+            android:src="@drawable/user"/>
+    </RelativeLayout>  
+     
+   <RelativeLayout
+         android:orientation="horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="30dp">
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/touchtochangehead" 
+            android:layout_centerInParent="true" 
+            android:textColor="@android:color/holo_blue_bright" />
+    </RelativeLayout>
+  
+     <View 
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+   
+     <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <TextView
+            android:id="@+id/agetip"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="7dp"
+            android:gravity="center_vertical|left"
+            android:text="@string/agetip"
+            android:textSize="16sp" />
+         
+    	<TextView   
+    	    android:id="@+id/age"
+    	android:layout_toRightOf="@id/agetip"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/age"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+
+    </RelativeLayout>
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+         <TextView
+            android:id="@+id/sextip"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="7dp"
+            android:gravity="center_vertical|left"
+            android:text="@string/sextip"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/sex"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/sextip"
+            android:gravity="center_vertical|left"
+            android:text="@string/sex"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>  
+  
+      <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+         <TextView
+            android:id="@+id/professiontip"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="7dp"
+            android:gravity="center_vertical|left"
+            android:text="@string/professiontip"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/profession"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/professiontip"
+            android:gravity="center_vertical|left"
+            android:text="@string/profession"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+      <RelativeLayout
+         android:orientation="horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="30dp">
+         <TextView
+             android:id="@+id/changepassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/touchtochangepassword" 
+            android:layout_centerInParent="true" 
+            android:textColor="@android:color/holo_blue_bright" />
+    </RelativeLayout>
+  
+     <View 
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+   
+ 
+</LinearLayout>
+
+
+

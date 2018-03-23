@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="160dp">
+        
+        <com.left.indoor.myview.RoundImageView
+            android:id="@+id/headsculpture"
+            android:layout_centerInParent="true" 
+            android:layout_width="150dp" 
+            android:layout_height="150dp" 
+            android:src="@drawable/user"/>
+    </RelativeLayout>
+       
+    <RelativeLayout
+         android:orientation="horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="37dp">
+         <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nickname" 
+            android:layout_centerInParent="true" 
+            android:textColor="@android:color/holo_blue_bright" />
+    </RelativeLayout>
+    
+     <RelativeLayout
+         android:orientation="horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="37dp">
+         <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email" 
+            android:layout_centerInParent="true" 
+            android:textColor="@android:color/holo_blue_bright" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="37dp">
+        <TextView
+           android:id="@+id/location"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/location" 
+           android:layout_centerInParent="true" 
+           android:textColor="@android:color/holo_blue_bright" />
+    </RelativeLayout>
+ 
+</LinearLayout>

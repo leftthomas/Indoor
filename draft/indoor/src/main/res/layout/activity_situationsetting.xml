@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff" >
+    
+    <RelativeLayout 
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+   		android:layout_height="45dp">
+    
+      <ImageView 
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:contentDescription="@string/hello_world"/>
+         
+        <TextView 
+           android:layout_centerInParent="true"
+           android:id="@+id/biaoti"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/situationsetting"
+           android:textSize="18sp"/>   
+       
+    </RelativeLayout>
+      <View 
+        android:background="#808080"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     <ScrollView
+  android:layout_width="fill_parent" 
+  android:layout_height="fill_parent">
+    <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">   
+    
+   <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/specialsituation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/specialsituation"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/specialsituation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/specialreminder"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    	 <Switch
+            android:id="@+id/specialreminderstatus"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+    
+    
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    
+   
+         <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/distanceless"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/distanceless"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/distanceless"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/distance_smallerthan_remind"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    	
+    	 <CheckBox
+            android:id="@+id/distancelessstatus"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+    <TextView   
+        android:id="@+id/radius"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/radius"
+        android:layout_marginLeft="17dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+     <SeekBar
+        android:id="@+id/distancelessdistance"
+        android:layout_marginLeft="8dp"
+        android:layout_width="300dp"
+        android:max="100" 
+        android:layout_height="wrap_content" />
+     <View
+           android:layout_marginTop="6dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+            <RelativeLayout  
+        android:layout_width="match_parent"
+   		android:layout_height="40dp">
+        
+         <ImageView 
+        android:layout_marginLeft="5dp"
+        android:id="@+id/myplan"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/myplan"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/hello_world"/>
+         
+    	<TextView   
+    	android:layout_toRightOf="@id/myplan"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/myplan_reminder"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical|left"
+        android:textSize="16sp"/>
+    	 <Switch
+            android:id="@+id/myplan_reminderstatus"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+   
+     <View
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#A9A9A9"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+     
+    </LinearLayout>
+  </ScrollView>
+   
+</LinearLayout>
+
+

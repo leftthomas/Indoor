@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="44dp">
+
+        <TextView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="@string/situation"
+            android:textSize="18sp" />    
+       </RelativeLayout>
+       
+    <LinearLayout
+        android:baselineAligned="false"
+        android:layout_width="fill_parent"
+        android:layout_height="37dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/id_showfriendsstatus"
+            android:layout_width="3dp"
+            android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@android:color/holo_blue_bright"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/friendsstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/friendsstatus"
+                android:textColor="@android:color/holo_green_dark" />
+        </LinearLayout>
+
+        <LinearLayout 
+            android:id="@+id/id_showallplan"
+            android:layout_width="3dp"
+            android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/allplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/allplan" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/id_showparticularconcern"
+            android:layout_width="3dp"
+            android:orientation="horizontal"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" 
+            android:background="@android:color/holo_green_light"
+            android:gravity="center" >
+
+            <TextView 
+                android:id="@+id/particularconcern"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/particularconcern" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/situationviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>
